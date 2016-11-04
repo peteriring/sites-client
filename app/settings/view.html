@@ -1,0 +1,213 @@
+<div class="row" ng-if="false">
+    <div class="col-xs-12 col-md-12">
+        <div class="custom-bordered-box">
+            <div>Current plan: <span class="default-green">{{user.site.plan.name}}</span></div>
+            <div ng-if="false" class="custom-subtext">Today spent: $87, Amount you owe: $182 Billing: Sept 13, 2015</div>
+        </div>
+    </div>
+</div>
+
+<div>
+    <div ng-include="'core/templates/siteSettingPanel.html'"></div>
+
+    <h1 class="title-with-circle">Personal settings</h1>
+
+    <gm-form endpoint="me/update/user" atomic="false" model="user" trigger="submit" icon="icon-save" animation="faa-passing animated" access="editAccount">
+        <div class="row">
+            <div class="col-xs-12 col-md-6">
+                <div class="form-group custom-form-group">
+                    <label class="custom-label">First Name</label>
+                    <gm-input type="text" property="model.firstName" validate="required"/>
+                </div>
+            </div>
+            <div class="col-xs-12 col-md-6">
+                <div class="form-group custom-form-group">
+                    <label class="custom-label">Last Name</label>
+                    <gm-input type="text" property="model.lastName" validate="required"/>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-md-6">
+                <div class="form-group custom-form-group">
+                    <label class="custom-label">E-mail Address</label>
+                    <gm-input type="text" property="model.email" validate="['required', 'email', 'duplicate={original}']"/>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-md-6">
+                <div class="form-group custom-form-group">
+                    <button type="submit" class="primary-btn large-btn"> Save Changes</button>
+                </div>
+            </div>
+        </div>
+    </gm-form>
+
+
+    <gm-form endpoint="me/update/site" atomic="false" model="user.site" trigger="focus" icon="icon-save" animation="faa-passing animated" access="editAccount">
+        <div class="row">
+            <div class="col-xs-12 col-md-6">
+                <div class="row">
+                    <div class="col-xs-12 col-md-6">
+                        <div class="form-group custom-form-group">
+                            <label class="custom-label">City</label>
+                            <gm-input type="text" property="model.account.city" validate="required">
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-md-6">
+                        <div class="form-group custom-form-group">
+                            <label class="custom-label">Zip / Postal Code</label>
+                            <gm-input type="text" property="model.account.zipCode" validate="['required']">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-md-6">
+                <div class="form-group custom-form-group">
+                    <label class="custom-label">Company / Organization</label>
+                    <gm-input type="text" property="model.account.company" validate="required">
+                </div>
+            </div>
+            <div class="col-xs-12 col-md-6">
+                <div class="row">
+                    <div class="col-xs-12 col-md-6">
+                        <div ng-class="{'input-error': accountForm.country.$invalid}" class="form-group custom-form-group">
+                            <label class="custom-label">Country</label>
+                            <gm-input type="gm-select" property="model.account.country" validate="required" placeholder="Select a country"  before="checkCountries" change="checkCountries" after="selectCountry">
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-md-6">
+                        <div ng-class="{'input-error': accountForm.state.$invalid}" class="form-group custom-form-group">
+                            <label class="custom-label">State / Province</label>
+                            <gm-input type="gm-select" property="model.account.state" validate="required" placeholder="Select a state" array="states">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-md-6">
+                <div ng-class="{'input-error': accountForm.industry.$invalid}" class="form-group custom-form-group">
+                    <label class="custom-label">Industry</label>
+                    <gm-input type="gm-select" multi="true" property="model.account.industry" validate="required" array="industries" placeholder="Select one or more industry">
+                </div>
+            </div>
+            <div class="col-xs-12 col-md-6">
+                <div ng-class="{'input-error': accountForm.phone.$invalid}" class="form-group custom-form-group">
+                    <label class="custom-label">Phone</label>
+                    <gm-input type="text" property="model.account.phone" validate="['required', 'phone']">
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-md-12">
+                <hr />
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-xs-12 col-md-12">
+                <div class="form-group custom-form-group">
+                    <button type="submit" class="primary-btn large-btn"> Save Changes</button>
+                </div>
+            </div>
+        </div>
+    </gm-form>
+
+    <h1 class="title-with-circle">Password</h1>
+
+    <gm-form handler="submitPassword(model)" atomic="false" model="changePassword" trigger="focus" icon="icon-save" animation="faa-passing animated" access="editAccount">
+        <div class="row">
+            <div class="col-xs-12 col-md-6">
+                <div class="form-group">
+                    <label class="custom-label">Password</label>
+                    <gm-input type="password" property="model.password" validate="['required', 'password']">
+                    <div class="help-block with-errors"></div>
+                </div>
+            </div>
+            <div class="col-xs-12 col-md-6">
+                <div class="form-group password">
+                    <label class="custom-label">Confirm Password</label>
+                    <gm-input type="password" property="model.passwordRe" validate="['required','equals={model.password}']">
+                    <div class="help-block with-errors"></div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-md-12">
+                <div class="form-group">
+                    <button type="submit" class="primary-btn large-btn"> Change Password</button>
+                </div>
+            </div>
+        </div>
+    </gm-form>
+</div>
+
+<div class="notification-settings-container">
+    <div class="custom-padding-bottom10">
+        <div class="row">
+            <div class="col-xs-12 col-sm-6">
+                <div class="page-header custom-page-header">
+                    <h1 class="title-with-circle">Notifications</h1>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-6">
+                <div class="add-notification-email-button">
+                    <button access="addNotification" class="secondary-btn" ng-click="addNotification()"><i class="fa fa-plus-circle"></i> Add Notification Email</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-12 col-md-12">
+            <div class="table-responsive notification-settings-container__table-container">
+                <table ng-table class="table notification-settings-container__table">
+                    <tr ng-repeat="notification in user.site.notifications">
+                        <td data-title="'Email Address'" data-mobile-title="Email Address" class="custom-break-word">
+                            <div><input class="form-control" type="email" name="email" ng-change="changeNotifications($index)" ng-model="notification.email" required/></div>
+                        </td>
+                        <td ng-show="false" data-title="'Phone number'" data-mobile-title="Phone number" ng-if="false" class="custom-break-word">
+                            <div><input class="form-control" name="phone" type="tel" ng-model="notification.phone"/></div>
+                        </td>
+                        <td data-title="'Daily Summary'" data-mobile-title="Daily Summary">
+                            <div class="checkbox-switch-container">
+                                <label class="checkbox-switch">
+                                    <input type="checkbox" ng-model="notification.daily.email" ng-change="changeNotifications($index)" class="ng-pristine ng-untouched ng-valid">
+                                    <span></span>
+                                </label>
+                                <span class="label-text">Email</span>
+                            </div>
+                        </td>
+                        <td data-title="'Weekly Summary'" data-mobile-title="Weekly Summary">
+                            <div class="checkbox-switch-container">
+                                <label class="checkbox-switch">
+                                    <input type="checkbox" ng-model="notification.weekly.email" ng-change="changeNotifications($index)" class="ng-pristine ng-untouched ng-valid">
+                                    <span></span>
+                                </label>
+                                <span class="label-text">Email</span>
+                            </div>
+                        </td>
+                        <td data-title="'Monthly Summary'" data-mobile-title="Monthly Summary">
+                            <div class="checkbox-switch-container">
+                                <label class="checkbox-switch">
+                                    <input type="checkbox" ng-model="notification.monthly.email" ng-change="changeNotifications($index)" class="ng-pristine ng-untouched ng-valid">
+                                    <span></span>
+                                </label>
+                                <span class="label-text">Email</span>
+                            </div>
+                        </td>
+                        <td data-title="'Edit'" data-mobile-title="Edit" class="text-center">
+                            <button ng-disabled="isNotificationChanged[$index] && notificationsSaving" ng-click="saveNotifications($index)" class="btn btn-green"><i class="fa fa-check"></i></button>
+                            <button ng-disabled="(isNotificationChanged[$index] && notificationsSaving) || $index === 0" ng-click="removeNotification($index)" class="btn btn-green"><i class="fa fa-remove"></i></button>
+                        </td>
+                    </tr>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

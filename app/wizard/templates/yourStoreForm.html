@@ -1,0 +1,103 @@
+<div class="plugins">
+     <h1 class="step-title">{{state.current.data.title}}</h1>
+     <div class="container">
+        <gm-form atomic="false" model="user.site" handler="next(value)" >
+            <div class="row">
+                <div class="plugin-engine-select">
+                    <div class="col-sm-4">
+                        <label class="engine">
+                            <img src="/images/logo_shopify.svg" class="img-responsive">
+                            <div class="radio-input">
+                                <div class="radio-container">
+                                    <input ng-model="model.engine" class="text-center" type="radio" name="pluginSelector" value="shopify" ng-click="shopifyModal($event)">
+                                    <span class="label"><span></span></span>
+                                </div>
+                            </div>
+                        </label>
+                    </div>
+                    <div class="col-sm-4">
+                        <label class="engine">
+                            <img src="/images/logo_woocommerce.svg" class="img-responsive">
+                            <div class="radio-input">
+                                <div class="radio-container">
+                                    <input ng-model="model.engine" class="text-center" type="radio" name="pluginSelector" value="woocommerce">
+                                    <span class="label"><span></span></span>
+                                </div>
+                            </div>
+                        </label>
+                    </div>
+                    <div class="col-sm-4">
+                        <label class="engine">
+                            <img src="/images/logo_wpecommerce.png" class="img-responsive">
+                            <div class="radio-input">
+                                <div class="radio-container">
+                                    <input ng-model="model.engine" class="text-center" type="radio" name="pluginSelector" value="wpecommerce">
+                                    <span class="label"><span></span></span>
+                                </div>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="id-block">
+                        <div class="container">
+                            <h2 class="label">Your Site ID:</h2>
+                            <span class="highlighted-text">
+                                <input class="id plugin-site-id bold" type="text" ng-model="user.site.id" select-on-click readonly/>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div ng-if="model.engine === 'woocommerce'" class="form-title">
+                <h2 id="anchor" class="title-with-circle">How to install GhostMonitor on your WooCommerce site:</h2>
+            </div>
+
+            <div ng-if="model.engine === 'wpecommerce'" class="form-title">
+                <h2 id="anchor" class="title-with-circle">How to install GhostMonitor on your WP eCommerce site:</h2>
+            </div>
+
+            <div class="animate-switch-container" ng-switch on="model.engine">
+
+                <div ng-if="model.engine === 'woocommerce' || model.engine === 'wpecommerce'" class="animate-switch">
+                    <ul>
+                        <li>
+                            <div><span>1)</span>In your WP Admin, go to Plugins > Add New.</div>
+                        </li>
+                        <li>
+                            <div><span>2)</span>Search for “GhostMonitor" and click "Install Now" on our plugin.
+                                Alternatively, <a ng-href="{{pluginPageUrl}}" target="_blank">here's</a> the direct link to the plugin on WordPress.org.
+                            </div>
+                        </li>
+                        <li>
+                            <div><span>3)</span>Once the plugin has been installed, please activate it.</div>
+                        </li>
+                        <li>
+                            <div><span>4)</span>Go to Plugins > GhostMonitor > Settings and paste your
+                                Site ID (listed above) in the applicable field. Click “Save” when you’re done.
+                            </div>
+                        </li>
+                        <li>
+                            <div><span>5)</span>That’s it, you’re done!</div>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="text-center instruction-label">
+                    Having trouble with the installation? Read our complete guide about set up GhostMonitor on your site.
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="btn-container col-sm-12">
+                    <button type="submit" class="primary-btn large-btn">
+                        Next
+                    </button>
+                </div>
+            </div>
+        </gm-form>
+    </div>
+</div>

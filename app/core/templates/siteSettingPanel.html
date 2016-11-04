@@ -1,0 +1,15 @@
+<section class="site-settings-container">
+    <h1>{{user.site.name}} <span>({{user.site.domain}})</span></h1>
+    <!-- <user-active></user-active>
+    <trial-days></trial-days>
+    <trial-days-ended></trial-days-ended> -->
+    <trial-days></trial-days>
+    <ul class="buttons">
+        <li ng-if="state.current.name == 'app.dashboard'">
+            <a ui-sref="app.me.settings" class="secondary-btn">Change Site Settings</a>
+        </li>
+        <li ng-if="false">
+            <a href="{{user.site.domain}}" class="secondary-btn" target="_blank">Visit Site</a>
+        </li>
+    </ul>
+</section>

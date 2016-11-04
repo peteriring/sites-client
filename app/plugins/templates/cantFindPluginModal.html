@@ -1,0 +1,40 @@
+<div class="modal-header" ng-switch="mode">
+    <button ng-click="cancel()" type="button" class="close" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+    <h4 class="modal-title">Can't find your platform? Choose one!</h4>
+</div>
+<gm-form atomic="false" model="ui" handler="ok()" trigger="submit">
+    <div class="modal-body">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group custom-form-group cant-find-engines">
+                        <label class="custom-label">Select the system you want to use with GhostMonitor: </label>
+                        <gm-input type="gm-select" property="model.engine" absolute="true" placeholder="Select an engine" array="model.engines"></gm-input>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group custom-form-group">
+                        <label class="custom-label">Can't find your platform on the list? Enter here: </label>
+                        <gm-input type="text" property="model.custom">
+                        <div class="help-block with-errors"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <p>Thanks! This helps us to decide on which platform we should work next.</p>
+                    <p>You'll be notified when we're available on your platform. </p>
+                    <p>If you have any questions, please feel free to reach us out at hello@ghostmonitor.com</p>
+                </div>
+            </div>
+    </div>
+    <div class="modal-footer" style="text-align: center;">
+        <div class="col-xs-12 text-right">
+            <button type="submit" class="btn btn-first btn-lg">Submit</button>
+        </div>
+        <div class="col-xs-12 margin-top-1">
+            <small>After hitting the Submit button, we'll redirect you to our homepage.</small>
+        </div>
+    </div>
+</gm-form>

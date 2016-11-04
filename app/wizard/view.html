@@ -1,0 +1,39 @@
+<loader-popup></loader-popup>
+<div class="signup">
+	<div class="row">
+    	<div>
+    		<a ui-sref="auth.login" class="gotologin">
+    			<!--<span class="fa fa-angle-left"></span> Back to Login -->
+    			<img src="/images/ghostmonitor_logo.png" alt="">
+    		</a>
+        </div>
+    </div>
+
+	<div class="full-bg-container">
+		<div class="container">
+			<ol class="signup-steps">
+				<li ng-click="goTo('wizard.process.yourstore')" ng-class="{'active': state.current.name ==='wizard.process.yourstore', 'ready': getState('wizard.process.yourstore').valid}">
+					<div class="signup-step-container">
+						<span class="step"><span>1</span></span>
+						<span class="step-name">Install GhostMonitor</span>
+					</div>
+				</li>
+				<li ng-click="goTo('wizard.process.yourself')" ng-class="{'active': state.current.name ==='wizard.process.yourself', 'ready':  getState('wizard.process.yourself').valid}">
+					<div class="signup-step-container">
+						<span class="step"><span>2</span></span>
+						<span class="step-name">Tell us about your shop</span>
+					</div>
+				</li>
+				<li ng-click="goTo('wizard.process.account')" ng-class="{'active': state.current.name ==='wizard.process.account', 'ready':  getState('wizard.process.account').valid}">
+					<div class="signup-step-container">
+						<span class="step"><span>3</span></span>
+						<span class="step-name">Set up your emails</span>
+					</div>
+				</li>
+			</ol>
+		</div>
+	</div>
+	<div class="form-views" ui-view></div>
+
+	<div ng-include="'core/templates/footer.html'"></div>
+</div>

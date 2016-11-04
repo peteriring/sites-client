@@ -1,0 +1,33 @@
+<div class="fileupload-buttonbar" ng-class="{hasimage: model !== fallback}">
+    <div class="drop-zone-inactive" drop-zone="{{storagename}}" ng-model="model" ng-change="compile()" >
+        <div class="progress-container">
+            <div class="progress progress-striped active">
+                <div class="progress-bar progress-bar-success" data-ng-style="{width: progress + '%'}"></div>
+            </div>
+        </div>
+
+        <div ng-if="model === fallback">
+            <span class="upload-icon icon-fileupload"></span>
+            <span class="drag-n-drop-text">Drag your {{storagename}} here</span>
+            or select a file to upload:
+            <span class="secondary-btn fileinput-button" ng-class="{disabled: disabled}">
+                <span>Choose logo</span>
+                <input type="file" id="file" ng-model="model" ng-change="compile()" filereader="{{storagename}}" name="file" ng-disabled="disabled">
+            </span>
+        </div>
+        <div ng-if="model !== fallback">
+            <div class="logo-preview">
+                <div class="logo-preview-image-container">
+                    <img ng-src="{{model}}" alt="">
+                </div>
+            </div>
+            <div>
+                <a href="#" class="warning-btn" ng-click="resetImage()">Delete</a>
+                <span class="secondary-btn fileinput-button" ng-class="{disabled: disabled}">
+                    <span>Choose another logo</span>
+                    <input type="file" id="file" ng-model="model" ng-change="compile()" filereader="{{storagename}}" name="file" ng-disabled="disabled">
+                </span>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,105 @@
+.default-tabset {
+    margin-bottom: 20px;
+    > .nav-tabs {
+        padding: 0 25px;
+        > li {
+
+            @include respond-to(phone) {
+                float: none;
+            }
+            > a {
+                text-align: center;
+                border: 1px solid $color-border;
+                background-color: #f3f5f6;
+                font-size: 20px;
+                width: 100%;
+                margin-right: 0;
+                border-radius: 0;
+                color: #c9c9c9;
+                font-weight: bold;
+                @include ellipsis(none);
+                @include respond-to(xs-devices-and-up) {
+                    min-width: 260px;
+                }
+                @include respond-to(sm-devices-and-up) {
+                    min-width: 245px;
+                }
+                @include respond-to(md-devices-and-up) {
+                    min-width: 260px;
+                }
+            }
+            &.active {
+                > a {
+                    position: relative;
+                    background-color: #fff;
+                    color: $color-secondary;
+                    &:before {
+                        content: "";
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        right: 0;
+                        background-color: $color-secondary;
+                        height: 2px;
+                    }
+                }
+            }
+            span,
+            .icon {
+                display: inline-block;
+                margin-right: 5px;
+            }
+        }
+    }
+}
+
+.rounded-tabset {
+    margin-bottom: 20px;
+    > .nav-tabs {
+        border-bottom: none;
+        > li {
+            padding-right: 10px;
+            margin-bottom: 0;
+            float: none;
+            display: block;
+            @include respond-to(xs-devices-and-up) {
+                display: inline-block;
+            }
+            > a {
+                margin-right: 0;
+                display: block;
+                border: none;
+                border-radius: 100px;
+                color: $color-rounded-tab-font;
+                background-color: $color-rounded-tab-bg;
+                font-weight: bold;
+                text-align: center;
+                @include ellipsis(200px);
+                @include respond-to(phone) {
+                    width: 100%;
+                    display: block;
+                    max-width: none;
+                    margin-bottom: 10px;
+                }
+                &:focus,
+                &:hover {
+                    border: none;
+                    background-color: $color-rounded-tab-active-bg;
+                    color: $color-rounded-tab-active-font;
+                }
+            }
+            &.active {
+                > a {
+                    color: $color-rounded-tab-active-font;
+                    background-color: $color-rounded-tab-active-bg;
+                    border-radius: 100px;
+                    &:focus,
+                    &:hover {
+                        border: none;
+                        background-color: darken($color-rounded-tab-active-bg, 10%);
+                    }
+                }
+            }
+        }
+    }
+}

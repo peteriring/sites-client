@@ -1,0 +1,64 @@
+<trial-expire-alert ng-if="state.current.name !== 'app.me.billing'"></trial-expire-alert>
+<loader-popup></loader-popup>
+<nav class="navbar navbar-default custom-navbar">
+    <div class="container">
+      <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand custom-margin-reset" title="GhostMonitor" href="/">
+                <img src="images/ghostmonitor_logo.png" alt="GhostMonitor">
+            </a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav custom-navbar-nav">
+                <li ui-sref-active="active"><a ui-sref="app.dashboard" title="Dashboard">Dashboard <span class="sr-only">(current)</span></a></li>
+                <li ui-sref-active="active"><a ui-sref="app.campaigns" title="Campaigns">Campaigns</a></li>
+                <li ui-sref-active="active"><a ui-sref="app.ghosts" title="Ghosts">Ghosts</a></li>
+                <li ui-sref-active="active">
+                    <a class="hidden-sm" ui-sref="app.email_acquisition" title="Email acquisition">Email acquisition</a>
+                    <a class="visible-sm" ui-sref="app.email_acquisition" title="Email acquisition md">Email</a>
+                </li>
+                <li ng-class="{'active': state.current.name.indexOf('app.me') > -1}"><a ui-sref="app.me.settings" title="Settings">Settings</a></li>
+                <li class="logout-btn"><a ng-click="logout()" title="Logout">Logout</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right custom-navbar-right">
+                <li class="dropdown nav-profile-dropdown" dropdown>
+                    <a href="#" class="dropdown-toggle" dropdown-toggle role="button" aria-expanded="false">
+                        <div class="menu-userdata">
+                            <div class="fa-user-col">
+                                <div class="fa-user-container">
+                                    <i class="icon-user"></i>
+                                </div>
+                            </div>
+                            <div class="profile">
+                                <span class="username">{{user.site.name}}</span>
+                                <span class="usersite">({{user.site.domain}})</span>
+                            </div>
+                            <div class="menu-angle">
+                                <i class="fa fa-angle-down"></i>
+                            </div>
+                        </div>
+                    </a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li><a ui-sref="app.me.settings"><span><i class="icon-user"></i> My Account</span></a></li>
+                        <li><a ui-sref="app.me.site"><span><i class="icon-wrench"></i> My Site</a></span></li>
+                        <li ng-if="!accountManagementUrl && siteInfo.isNotShopify"><a ui-sref="app.me.billing"><span><i class="icon-billing"></i> Billing</a></span></li>
+                        <li ng-if="accountManagementUrl"><a ng-href="{{accountManagementUrl}}" target="_blank"><span><i class="icon-billing"></i> Billing</a></span></li>
+                        <li><a href="#" ng-click="logout()"><span><i class="icon-logout"></i> Logout</a></span></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <div ng-if="false" tracking-checker class="alert alert-danger" role="alert">
+        <!-- <div ng-if="state.current.name !== 'app.me.plugins'" tracking-checker class="alert alert-danger" role="alert"> -->
+            <span class="fa fa-exclamation-triangle"></span> Your setup was unsuccessful, we can’t detect connection with your site. Please try the <a ui-sref="app.me.plugins">setup again</a>, or <a href="mailto:hello@ghostmonitor.com">contact our support</a> for help.
+        </div>
+    </div>
+</nav>

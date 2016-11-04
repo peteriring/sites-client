@@ -1,0 +1,45 @@
+<div class="container">
+    <h1 class="step-title">Tell us about your shop</h1>
+    <h2 class="title-with-circle">Tell us about your shop</h2>
+    <div class="row">
+        <gm-form atomic="false" model="user" handler="next(value)" trigger="submit">
+
+            <div class="form-group col-sm-6">
+                <label for="firstName">First Name</label>
+                <gm-input type="text" property="model.firstName" validate="required" placeholder="Your personal firstname.">
+                <div class="help-block with-errors"></div>
+            </div>
+
+            <div class="form-group col-sm-6">
+                <label for="lastName">Last Name</label>
+                <gm-input type="text" property="model.lastName" validate="required" placeholder="Your personal lastname.">
+                <div class="help-block with-errors"></div>
+            </div>
+
+            <div class="col-sm-6">
+
+                <div class="form-group">
+                    <label for="domain">Shop URL</label>
+                    <gm-input type="text" property="model.site.domain" validate="['url', 'domain', 'required']">
+                    <div class="help-block with-errors"></div>
+                </div>
+            </div>
+
+            <div class="col-sm-6">
+
+                <div class="form-group">
+                    <label for="currency">Currency</label>
+                    <div class="ui-select-wrapper">
+                    <gm-input type="gm-select" property="model.site.currency" validate="required" placeholder="Select a type" array="currencies" display="element.display" save="element.value" >
+                    </div>
+                </div>
+            </div>
+
+            <div class="btn-container col-sm-12">
+                <button type="submit" class="primary-btn large-btn">Next</button>
+            </div>
+        </gm-form>
+    </div>
+</div>
+
+

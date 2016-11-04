@@ -1,0 +1,24 @@
+<div class="full-bg-container">
+    <div class="settings-header">
+        <div class="settings-tabs">
+            <a ui-sref-active="active" ui-sref="app.me.plugins" ><i class="icon-plugins"></i> Plugins</a>
+            <a ui-sref-active="active" ui-sref="app.me.settings" ><i class="icon-user"></i> My Account</a>
+            <a ui-sref-active="active" ui-sref="app.me.site" ><i class="icon-my-shop"></i> My Shop</a>
+            <a ng-if="!accountManagementUrl && siteInfo.isNotShopify" ui-sref-active="active" ui-sref="app.me.billing" ><i class="icon-billing"></i> Billing</a>
+            <a ng-if="accountManagementUrl && siteInfo.isNotShopify" ng-href="{{accountManagementUrl}}" target="_blank" ><i class="icon-billing"></i> Billing</a>
+            <a href="#" ng-click="logout()" ><i class="icon-logout"></i> Logout</a>
+        </div>
+        <h1>{{title}}</h1>
+    </div>
+</div>
+
+<div ui-view></div>
+
+
+
+
+
+
+
+
+

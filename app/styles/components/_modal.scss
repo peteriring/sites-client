@@ -1,0 +1,121 @@
+.welcome-content {
+    border-radius: 10px !important;
+    .welcome-modal {
+        .green-badge {
+            width: 37px;
+            height: 37px;
+            color: $color-primary;
+            border-radius: 100%;
+            position: absolute;
+            right: 10px;
+            top: 6px;
+            padding-top: 12px;
+            font-size: 17px;
+            &:hover {
+                color: darken($color-primary, 10%);
+            }
+            span {
+                font-size: 27px;
+                line-height: 24px;
+                display: block;
+                margin-top: -25%;
+            }
+        }
+
+        .primary-btn {
+            margin-top: 15px;
+            width: 100%;
+        }
+
+        .custom-padding {
+            padding-left: 10%;
+            padding-right: 10%;
+        }
+
+        .ghost-img {
+            @include respond-to(phone, xs-devices) {
+                width: 50%;
+                margin: 0 auto;
+            }
+        }
+        h1 {
+            font-weight: bold;
+            color: $color-primary;
+        }
+
+        p {
+            font-weight: bold;
+        }
+    }
+}
+
+/* --- expired modal --- */
+.expired-modal-body {
+    .site {
+        -webkit-filter: blur(5px);
+        -moz-filter: blur(5px);
+        -o-filter: blur(5px);
+        -ms-filter: blur(5px);
+        filter: blur(5px);
+    }
+}
+.expired-modal-backdrop.in {
+    opacity: 0.8;
+    filter: alpha(opacity=80);
+}
+.expired-modal-window {
+    .signup {
+        margin-bottom: 0;
+    }
+    .form-group {
+        margin-bottom: 20px;
+    }
+    .row {
+        .form-group {
+            margin-bottom: 0;
+        }
+    }
+    .expired-user-name {
+        display: block;
+        text-align: center;
+        margin-bottom: 10px;
+
+        .fa-user {
+            margin-right: 5px;
+            font-size: 16px;
+            color: #fff;
+            background-color: #eee;
+            width: 36px;
+            height: 36px;
+            text-align: center;
+            vertical-align: middle;
+            line-height: 36px;
+            border-radius: 50%;
+        }
+    }
+    .primary-btn {
+        width: 100%;
+    }
+}
+
+.install.ghostmonitor,
+.set.up.your.plugins {
+    .modal-content {
+        max-width: 500px;
+        margin: 0 auto;
+    }
+    .shopify-modal {
+        padding: 10px;
+        .modal-header {
+            background-color: #f6f9fa;
+        }
+        .primary-btn {
+            margin: 20px 0;
+            min-width: 200px;
+            font-size: 18px;
+        }
+        .text-below {
+            margin-top: 20px;
+        }
+    }
+}

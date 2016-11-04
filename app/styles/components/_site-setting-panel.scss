@@ -1,0 +1,58 @@
+
+.site-settings-container {
+    border: 1px solid $color-border;
+    background-color: #fff;
+    padding: 16px 16px 14px 16px;
+    border-radius: 5px;
+    @include clearfix();
+    h1 {
+        color: #66757f;
+        font-size: 20px;
+        margin-top: 0;
+        margin-bottom: 10px;
+        span {
+            color: #9a9a9a;
+            font-size: 15px;
+        }
+    }
+    .active-btn {
+        @extend .warning-btn;
+        margin-right: 8px;
+        &.active {
+            @extend .primary-btn;
+        }
+    }
+    .trial-btn {
+        @extend .secondary-btn;
+        background-color: #30a2ef;
+        margin: 4px 0;
+        &:hover {
+            color: #fff;
+            background-color: darken(#30a2ef, 10%);
+        }
+        &.ended {
+            @extend .warning-btn;
+            background-color: #e55353;
+        }
+        @include respond-to(sm-devices-and-up) {
+            margin: 0;
+        }
+    }
+    .buttons {
+        list-style-type: none;
+        margin: 0;
+        @include respond-to(sm-devices-and-up) {
+            position: relative;
+            top: -15px;
+            float: right;
+        }
+        li {
+            margin-bottom: 10px;
+            @include respond-to(sm-devices-and-up) {
+                float: left;
+                margin-left: 10px;
+                margin-bottom: 0;
+            }
+        }
+    }
+}

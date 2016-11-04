@@ -1,0 +1,136 @@
+.plugin-engine-select {
+    color: #5c6567;
+    @include respond-to(sm-devices-and-up) {
+        display: table;
+        width: 100%;
+        margin-bottom: 25px;
+    }
+    .col-sm-6 {
+        margin-bottom: 20px;
+        @include respond-to(sm-devices-and-up) {
+            float: none;
+            display: table-cell;
+            vertical-align: middle;
+            margin-bottom: 0;
+        }
+    }
+    .engine {
+        position: relative;
+        border: 1px solid $color-border;
+        background-color: #f6f9fa;
+        border-radius: 10px;
+        padding: 40px;
+        cursor: pointer;
+        @include respond-to(md-devices-and-up) {
+            padding: 45px 46px 55px 46px;
+        }
+        img {
+            width: 100%;
+        }
+        .radio-input {
+            position: absolute;
+            top: 0;
+            right: 0;
+            left: 0;
+            bottom: 0;
+            @include respond-to(sm-devices-and-up) {
+                top: auto;
+                right: auto;
+                left: 50%;
+                bottom: 12px;
+                margin-left: -20px;
+            }
+        }
+        .radio-container {
+            .label span {
+                width: 20px;
+                height: 20px;
+            }
+        }
+
+
+        .radio-container {
+            @include respond-to(phone, xs-devices) {
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+            }
+
+            input[type="radio"] {
+                @include respond-to(phone, xs-devices) {
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    right: 0;
+                    bottom: 0;
+                }
+            }
+
+            .label {
+                @include respond-to(phone, xs-devices) {
+                    position: absolute;
+                    top: 0;
+                    bottom: 0;
+                    right: 0;
+                    left: 0;
+                    margin: 0;
+                }
+            }
+
+            input[type="radio"] + .label span {
+                @include respond-to(phone, xs-devices) {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    right: 0;
+                    bottom: 0;
+                    border-radius: 10px;
+                    width: auto;
+                    height: auto;
+                    border: none;
+                    margin: 0;
+                }
+            }
+
+            input[type="radio"]:checked + .label span {
+                @include respond-to(phone, xs-devices) {
+                    border: 3px solid $color-secondary;
+                }
+                &:before {
+                    @include respond-to(phone, xs-devices) {
+                        content: none;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.animate-switch {
+    color: #5c6567;
+    margin-left: -6px;
+    ul {
+        list-style-type: none;
+        li {
+            position: relative;
+            font-size: 18px;
+            line-height: 23px;
+            color: #5c6567;
+            margin-left: 24px;
+            @include respond-to(sm-devices-and-up) {
+                display: table;
+                width: 100%;
+            }
+
+            span {
+                color: $color-secondary;
+                margin-right: 5px;
+                font-size: 18px;
+                line-height: 23px;
+                display: inline-block;
+            }
+        }
+    }
+}

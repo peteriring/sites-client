@@ -1,0 +1,24 @@
+<div class="container">
+    <div class="vertical-center">
+        <div class="col-centered">
+            <div class="login-and-sign-up">
+                <ul class="nav nav-tabs" ng-class="{'nav-stacked': vertical, 'nav-justified': justified}">
+                    <li ng-class="{active:  state.current.name == 'auth.login'}" heading="Log In">
+                        <a ui-sref="auth.login">Log In</a>
+                    </li>
+                    <li ng-class="{active: state.current.name == 'auth.register'}" heading="Sign Up">
+                        <a ui-sref="auth.register">Sign Up</a>
+                    </li>
+                </ul>
+                <div class="tab-content">
+                    <img src="/images/ghostmonitor_logo.png" alt="GhostMonitor" class="grayscale">
+                    <div ui-view vertical-align-center></div>
+                </div>
+                <footer class="login-and-sign-up-footer">
+                    <a ui-sref="wait.resetpassword">Forgot your password?</a>
+                    <a href="{{landingEndpoint}}">About Ghostmonitor</a>
+                </footer>
+            </div>
+        </div>
+    </div>
+</div>

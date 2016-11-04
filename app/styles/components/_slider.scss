@@ -1,0 +1,78 @@
+.ui-slider {
+    position: relative;
+    background-color: #d9d9d9;
+    border-radius: 10px;
+    height: 7px;
+    margin: 15px 0;
+    z-index: 1;
+    .ui-slider-handle {
+        position: absolute;
+        top: -16px;
+        border-radius: 100%;
+        background-color: #fff;
+        border: 1px solid #36cc78;
+        width: 40px;
+        height: 40px;
+        margin-left: -20px;
+        cursor: pointer;
+        &:after {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin-top: -14px;
+            margin-left: -14px;
+            content: "";
+            display: block;
+            width: 28px;
+            height: 28px;
+            background-color: #36cc78;
+            border-radius: 100%;
+        }
+        &:hover {
+            border-color: darken(#36cc78, 10%);
+            &:after {
+                background-color: darken(#36cc78, 10%);
+            }
+        }
+    }
+    .slider-value {
+        position: relative;
+        margin-top: 36px;
+        margin-left: -32px;
+        padding: 5px;
+        border: 1px solid $color-border;
+        border-radius: 5px;
+        width: 65px;
+        color: #5c6567;
+        font-size: 15px;
+        line-height: 15px;
+        display: inline-block;
+        text-align: center;
+        background-color: #fff;
+        &:after,
+        &:before {
+            content: '';
+            display: block;
+            position: absolute;
+            width: 0;
+            height: 0;
+            left: 50%;
+            border-top: none;
+        }
+        &:before {
+            top: -9px;
+            margin-left: -8px;
+            border-left: 8px solid transparent;
+            border-right: 8px solid transparent;
+            border-bottom: 8px solid $color-border;
+        }
+        &:after {
+            top: -8px;
+            margin-left: -8px;
+            border-left: 8px solid transparent;
+            border-right: 8px solid transparent;
+            border-bottom: 8px solid #fff;
+        }
+    }
+}
+

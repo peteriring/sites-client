@@ -1,0 +1,335 @@
+/**
+ * DEFAULTS
+ */
+$color-panel-bg: #f6f9fa;
+
+.email.acquisition {
+    .full-bg-container {
+        background-color: #fff;
+        padding-top: 30px;
+        border-bottom: none;
+        &:after,
+        &:before {
+            background-color: #fff;
+            border-bottom: none;
+        }
+    }
+    .footer {
+        margin-top: 60px;
+    }
+}
+
+.atc-popup-panel {
+    position: relative;
+    background-color: $color-panel-bg;
+    border: 1px solid $color-border;
+    border-radius: 10px;
+    margin-bottom: 30px;
+    padding: 25px 12px 110px 12px;
+    color: #9a9a9a;
+    @include respond-to(sm-devices-and-up) {
+        padding: 25px 30px;
+    }
+    &-header {
+        padding-bottom: 28px;
+        @include respond-to(sm-devices-and-up) {
+            position: relative;
+            display: table;
+            table-layout: fixed;
+            width: 100%;
+        }
+        .medium-btn {
+            padding-top: 10px;
+            padding-bottom: 11px;
+        }
+        .col {
+            @include respond-to(sm-devices-and-up) {
+                display: table-cell;
+                vertical-align: middle;
+            }
+            &:last-child {
+                text-align: right;
+                width: 240px;
+                @include respond-to(phone, xs-devices) {
+                    position: absolute;
+                    left: 0;
+                    right: 0;
+                    bottom: 6px;
+                    text-align: center;
+                    width: auto;
+                }
+            }
+        }
+    }
+
+    .icon-cart-col {
+        width: 55px;
+        vertical-align: top;
+        @include respond-to(phone, xs-devices) {
+            float: left;
+        }
+    }
+
+    .checkbox-switch {
+        display: block;
+        margin: 0 auto 8px auto;
+        @include respond-to(sm-devices-and-up) {
+            float: left;
+            margin-bottom: 0;
+        }
+    }
+
+    .icon-cart {
+        position: relative;
+        top: 5px;
+        color: #c7c7c6;
+        background-color: #e6e6e6;
+        border-radius: 100%;
+        padding: 5px 3px;
+        font-size: 26px;
+    }
+
+    &-title {
+        color: $color-secondary;
+        font-size: 25px;
+        line-height: 25px;
+        padding: 0;
+        font-weight: bold;
+        @include respond-to(phone, xs-devices) {
+            padding-top: 10px;
+            margin-left: 54px;
+            font-size: 22px;
+        }
+    }
+    &-desc {
+        margin: 0;
+        padding-right: 30px;
+        @include respond-to(phone, xs-devices) {
+            clear: both;
+            padding-top: 20px;
+            padding-right: 0;
+            text-align: center;
+        }
+    }
+
+    &-content {
+        position: relative;
+        &:before {
+            position: absolute;
+            content: "";
+            left: 0;
+            right: 0;
+            height: 1px;
+            top: -19px;
+            background-color: $color-border;
+        }
+        .row {
+            @include respond-to(lg-devices) {
+                width: 992px;
+                margin: 0 auto;
+            }
+        }
+        .col {
+            &:first-child {
+                margin-bottom: 20px;
+                @include respond-to(sm-devices-and-up) {
+                    margin-bottom: 0;
+                }
+            }
+
+            &--with-boxes {
+                padding: 0;
+            }
+        }
+        img {
+            width: 100%;
+        }
+    }
+
+    .col .count-box-container:first-child {
+        margin-bottom: 20px;
+        margin-right: 26px;
+    }
+
+    .col .count-box-container:last-child {
+        margin-top: 60px;
+
+        @include respond-to(phone, xs-devices) {
+            margin-top: 20px;
+        }
+
+        &::before {
+            border: 0 none;
+            background: none;
+            content: '';
+            position: absolute;
+            top: 152px;
+            left: 120px;
+            height: 73px;
+            width: 253px;
+            background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAP0AAABJCAMAAADBsNCtAAAAAXNSR0IArs4c6QAAAF1QTFRF//// MKPvMaHvMaHvMJ/vMaHwMKLvMKLvNqHyL6HyMKLvMKLvMaPvLqLoMKLvMKLvMKPvMKLwMKHwMaLv MKLvMKXxMKHvMKHvMKLwMKLvL6PwAH//L6LvMKLv////OYUJFAAAAB10Uk5TAKBt0hBE++kTJvP1 Lwvj/FDGdZ32JYCQVfpWAoGvMYC0AAAAAWJLR0QAiAUdSAAAAAlwSFlzAAALEgAACxIB0t1+/AAA AAd0SU1FB+AGCAUpLZc2bRgAAADiSURBVHja7ddHDsIwFEXRFFII6aGD979NIortLAD9wbtnhHgS 8p0QJ3EuUbWmUy+Keun6NLU+hBnhdACAGuGH3pqufdejXhT11GuinnpN8vVZZn0IM8LpAAA1eW59 Ast03bveTvqmSz31mj71b9E/f1G6SFX7Yd/Ew6H1Q9fHwzCG35riwc1hWDbDEoZ5M0xhGId46Ds/ tMd4aE5+qKt4KIvwW/n3u98HyXrjh/3ZXWwPQD311FNPPfXUU0899X9xvd2tj2DpYX0AAAAA/Iv2 Tfcp/Zaj/Y5HvS7qdVGvi3pLL8QlLy5BY4E2AAAAJXRFWHRkYXRlOmNyZWF0ZQAyMDE2LTA2LTA4 VDA1OjQxOjQ0LTA3OjAwn/jL8QAAACV0RVh0ZGF0ZTptb2RpZnkAMjAxNi0wNi0wOFQwNTo0MTo0 NS0wNzowMEjSePkAAAApdEVYdGRjOmZvcm1hdABhcHBsaWNhdGlvbi92bmQuYWRvYmUucGhvdG9z aG9w5K2fVAAAADh0RVh0aWNjOmNvcHlyaWdodABDb3B5cmlnaHQgKGMpIDE5OTggSGV3bGV0dC1Q YWNrYXJkIENvbXBhbnn5V3k3AAAAIXRFWHRpY2M6ZGVzY3JpcHRpb24Ac1JHQiBJRUM2MTk2Ni0y LjFXrdpHAAAAJnRFWHRpY2M6bWFudWZhY3R1cmVyAElFQyBodHRwOi8vd3d3LmllYy5jaBx/AEwA AAA3dEVYdGljYzptb2RlbABJRUMgNjE5NjYtMi4xIERlZmF1bHQgUkdCIGNvbG91ciBzcGFjZSAt IHNSR0JEU0ipAAAAFXRFWHRwaG90b3Nob3A6Q29sb3JNb2RlADNWArNAAAAAJnRFWHRwaG90b3No b3A6SUNDUHJvZmlsZQBzUkdCIElFQzYxOTY2LTIuMRwvbAsAAAATdEVYdHRpZmY6WFJlc29sdXRp b24ANzIOUHGFAAAAE3RFWHR0aWZmOllSZXNvbHV0aW9uADcyk1+Q8wAAACh0RVh0eG1wOkNyZWF0 ZURhdGUAMjAxNi0wNi0wOFQxNDo0MDo1NSswMjowMHLASmwAAAAvdEVYdHhtcDpDcmVhdG9yVG9v bABBZG9iZSBQaG90b3Nob3AgQ1M2IChNYWNpbnRvc2gp6wwOCQAAACp0RVh0eG1wOk1ldGFkYXRh RGF0ZQAyMDE2LTA2LTA4VDE0OjQwOjU1KzAyOjAw+pol6wAAACh0RVh0eG1wOk1vZGlmeURhdGUA MjAxNi0wNi0wOFQxNDo0MDo1NSswMjowMMY+dlUAAAA5dEVYdHhtcE1NOkRvY3VtZW50SUQAeG1w LmRpZDo2NDE3RTcwREJGMjI2ODExOEMxNEQ1M0M5QzdCREZDMKF/L1MAAAA5dEVYdHhtcE1NOklu c3RhbmNlSUQAeG1wLmlpZDo2NDE3RTcwREJGMjI2ODExOEMxNEQ1M0M5QzdCREZDMBxt7+YAAABB dEVYdHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRAB4bXAuZGlkOjY0MTdFNzBEQkYyMjY4MTE4QzE0 RDUzQzlDN0JERkMwCIUNkwAAAABJRU5ErkJggg==');
+
+            @include respond-to(md-devices) {
+                left: 100px;
+            }
+            @include respond-to(sm-devices) {
+                left: 44px;
+            }
+            @include respond-to(phone, xs-devices) {
+                display: none;
+            }
+        }
+    }
+}
+
+/**
+ * email box layout
+ */
+.email-box-container {
+    @include respond-to(sm-devices-and-up) {
+        display: table;
+        table-layout: fixed;
+        width: 100%;
+        height: 100%;
+    }
+    .col {
+        margin-bottom: 30px;
+        @include respond-to(sm-devices-and-up) {
+            display: table-cell;
+            float: none;
+            height: 100%;
+            margin-bottom: 0;
+        }
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+    .email-box {
+        height: 100%;
+    }
+    .inside-full-height {
+        /*
+            http://www.minimit.com/demos/bootstrap-3-responsive-columns-of-same-height
+            if you want to give content full height give him height: 100%;
+            with content full height you can't apply margins to the content
+            content full height does not work in ie http://stackoverflow.com/questions/27384433/ie-display-table-cell-child-ignores-height-100
+        */
+        height: 100%;
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+
+}
+
+
+/*********************
+ *  EMAIL COMPONENTS
+ **********************/
+
+/**
+ *  email box
+ */
+.email-box {
+    text-align: center;
+    & {
+        border: 1px solid $color-border;
+        background-color: $color-panel-bg;
+        border-radius: 10px;
+        padding: 20px 15px;
+    }
+    &-header {
+        position: relative;
+        padding-bottom: 40px;
+        &:before {
+            position: absolute;
+            content: "";
+            background-color: $color-border;
+            left: 0;
+            right: 0;
+            height: 1px;
+            bottom: 19px;
+        }
+    }
+    &-title {
+        color: $color-secondary;
+        font-size: 25px;
+        padding: 0;
+    }
+    &-desc {
+        color: #9a9a9a;
+        font-size: 14px;
+        line-height: 19px;
+        margin-bottom: 0;
+    }
+    .edit-btn {
+        padding-top: 11px;
+        padding-bottom: 11px;
+        margin-top: 24px;
+        font-size: 20px;
+        line-height: 20px;
+    }
+}
+
+
+/**
+ * Count box
+ */
+.count-box {
+
+    &-container {
+        color: #9a9a9a;
+        background-color: #eeeff0;
+        border-radius: 10px;
+        padding: 24px 30px;
+        text-align: center;
+        font-size: 25px;
+        line-height: 25px;
+        @include respond-to(md-devices-and-up) {
+            font-size: 30px;
+            line-height: 30px;
+        }
+        @include respond-to(phone, xs-devices) {
+            margin-left: 4%;
+            width: 92%;
+        }
+
+        &--small {
+            display: inline-block;
+            font-size: 25px;
+            width: 232px;
+            height: 108px;
+            padding: 0;
+            margin-top: 40px;
+
+            @include respond-to(md-devices) {
+                width: 210px;
+            }
+            @include respond-to(sm-devices) {
+                width: 155px;
+            }
+            @include respond-to(phone, xs-devices) {
+                display: block;
+                margin-top: 20px;
+                margin-left: 4%;
+                width: 92%;
+            }
+
+            & .count-box-count {
+                font-size: 40px;
+                padding-top: 10px;
+            }
+
+        }
+
+    }
+    &-count {
+        display: block;
+        font-weight: bold;
+        font-size: 42px;
+        line-height: 42px;
+        @include respond-to(md-devices-and-up) {
+            font-size: 50px;
+            line-height: 50px;
+        }
+    }
+}

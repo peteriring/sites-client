@@ -1,0 +1,118 @@
+<div ng-repeat="campaign in campaigns">
+    <div class="full-bg-container">
+        <div class="campaign">
+
+            <div class="header-row">
+                <div class="row">
+                    <div class="col-sm-8 col-campaign-mobile-header">
+                        <div class="switch-container">
+                            <label class="switch-on-off" ng-click="toggleCampaign($event, campaign)" ng-class="{enabled: campaign.enabled, disabled: !campaign.enabled}">
+                                <span></span>
+                            </label>
+                        </div>
+                        <div class="campaign-name-container">
+                            <h3 class="campaign-name"> {{campaign.name}} </h3>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-4 col-buttons col-buttons--controller text-right">
+                        <!-- <button class="secondary-btn" ng-click="toggleCampaign($event, campaign)" ng-model="campaign.enabled">Turn {{campaign.enabled? "off":"on"}}</button> -->
+                        <label class="checkbox-switch-height-30 checkbox-switch-height-30--main">
+                            <input type="checkbox" ng-model="campaign.enabled" ng-change="toggleCampaign($event, campaign)">
+                            <span></span>
+                        </label>
+                        <button class="secondary-btn medium-btn test-btn" type="button" ng-click="showEmailTest($event)">Send Test</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="campaign-details">
+                <div class="row">
+                    <div class="col-sm-4">
+                        <strong class="value">{{ campaign.statistics.sentEmails || 0 }}</strong>
+                        <span class="type">Sent</span>
+                    </div>
+                    <div class="col-sm-4">
+                        <strong class="value">{{ campaign.statistics.openRate | percent }}</strong>
+                        <span class="type">Open Rate</span>
+                    </div>
+                    <div class="col-sm-4">
+                        <strong class="value">{{ campaign.statistics.clickRate | percent }}</strong>
+                        <span class="type">Click Rate</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="campaign-items-title">
+        <h3 class="title-with-circle"> {{campaign.name}} <span ng-if="!billingEnabled" class="warning-message">(Your free trial expired)</span> </h3>
+    </div>
+
+    <div class="campaign-item-container">
+        <div ng-if="!billingEnabled" class="disable-div"></div>
+        <div ng-repeat="item in campaign.items" ng-show="item.itemType === 'email'" class="campaign-item"
+            ng-class="{'campaign-item-opened': item.showStat}">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="campaign-item__details">
+                        <div class="campaign-item__details__header">
+                            <div class="col-xs col-sm col-icon">
+                                <i class="icon-mail"></i>
+                            </div>
+                            <div class="col-xs col-sm">
+                                <a ui-sref="app.editor.text({campaignId: campaign._id, itemId: item._id})" class="header-title" tooltip-append-to-body="true" tooltip="{{ item.name }}" class="trim-info">
+                                    {{item.name | cut:true:45 }}
+                                </a>
+                                <div class="header-subtitle">
+                                    {{ item.scheduleString }}
+                                </div>
+                            </div>
+                            <div class="col-sm col-buttons">
+                                <div class="actions-container">
+                                    <button ui-sref="app.editor.campaignitem.text({campaignId: campaign._id, itemId: item._id})" class="secondary-btn edit-btn gm-btn">
+                                        <i class="icon-edit"></i> Edit
+                                    </button>
+                                    <!-- Kiszedve ng-click="previewEmail(item)" -->
+                                    <!-- <a href="#" ng-if="true" class="secondary-btn  preview-btn gm-btn">
+                                        <i class="icon-eye"></i> Preview
+                                    </a> -->
+                                    <label class="checkbox-switch-height-30" >
+                                        <input type="checkbox" ng-model="item.isEnabled" ng-change="toggleItem($event, item, campaign)">
+                                        <span></span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="campaign-item__details__body">
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <strong class="value">{{ item.statistics.sentEmails || 0  }}</strong>
+                                    <span class="type">Sent</span>
+                                </div>
+                                <div class="col-sm-4">
+                                    <strong class="value">{{ item.statistics.openRate | percent }}</strong>
+                                    <span class="type">Open Rate</span>
+                                </div>
+                                <div class="col-sm-4">
+                                    <strong class="value">{{ item.statistics.clickRate | percent }}</strong>
+                                    <span class="type">Click Rate</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- <div class="new-mail">
+        <div class="col-xs col-sm col-icon">
+            <i class="icon-mail"></i>
+        </div>
+        <div class="col-xs col-sm">
+            <a class="add">
+                Add new email
+            </a>
+        </div>
+    </div> -->
+</div>

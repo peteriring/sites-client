@@ -1,0 +1,26 @@
+<gm-form atomic="false" model="user" handler="register(value)" trigger="submit">
+    <div class="form-group">
+        <div class="form-field-with-icon">
+            <span class="icon-user"></span>
+            <gm-input type="text" property="model.email" validate="['required', 'email', 'duplicate']" placeholder="Email address">
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="form-field-with-icon">
+            <span class="icon-lock"></span>
+            <gm-input type="password" property="model.password" validate="['required', 'password']" placeholder="Password">
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="form-field-with-icon">
+            <span class="icon-link"></span>
+            <gm-input type="text" property="model.domain" validate="['url', 'domain', 'required']" placeholder="Site URL">
+        </div>
+    </div>
+    <div class="text-right">
+        <button type="submit" class="secondary-btn large-btn">Sign up</button>
+    </div>
+    <div class="signup-label">
+        Start your 15-day free trial, no credit card required and you can cancel anytime.
+    </div>
+</gm-form>

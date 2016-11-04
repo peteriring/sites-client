@@ -1,0 +1,61 @@
+<div class="rounded-tabset">
+    <ul class="nav nav-tabs">
+        <li ng-repeat="item in campaign.items" ng-class="{active: item.id === itemId}" ng-show="item.itemType !== 'sms'">
+            <a href="#" ui-sref="app.editor.campaignitem.text({campaignId: campaign.id, itemId: item.id})">{{item.name}}</a>
+        </li>
+    </ul>
+</div>
+
+<div dynamic-height justified="false">
+    <h1 class="tab-main-title">E-mail editor</h1>
+
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="button-block--upper">
+                <button ng-click="save($event)" class="primary-btn large-btn save-button--upper">
+                    <span class="icon-save" aria-hidden="true"></span>
+                    Save Changes
+                </button>
+                <popover-handler url="editor/templates/popover.html" handler="reset()"><span class="icon-refresh"></span>Reset</popover-handler>
+            </div>
+            <div class="default-tabset col-xs-12">
+                <ul class="nav nav-tabs">
+                    <li role="presentation" ng-class="{active: state.current.name == 'app.editor.campaignitem.text'}"><a ui-sref="app.editor.campaignitem.text"><span class="icon-text"></span>Text Editor</a></li>
+                    <li role="presentation" ng-class="{active: state.current.name == 'app.editor.campaignitem.design'}"><a ui-sref="app.editor.campaignitem.design"><span class="icon-brush"></span>Design Editor</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-6">
+            <div ui-view></div>
+            <div class="col-sm-12 button-block">
+                <button ng-click="save($event)" class="primary-btn large-btn save-button">
+                    <span class="icon-save" aria-hidden="true"></span>
+                    Save Changes
+                </button>
+                <popover-handler url="editor/templates/popover.html" handler="reset()"><span class="icon-refresh"></span>Reset</popover-handler>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <preview style="width: 100%; height: 100%;" template="compiled"></preview>
+            <div class="email-dynamic-content">
+                <h3 class="email-dynamic-content-title">To use dynamic content in your emails, you can use these values:</h3>
+                <div class="email-dynamic-content-values" ng-non-bindable>
+                    <span class="email-dynamic-content-value">{{domain}} ; </span>
+                    <span class="email-dynamic-content-value">{{siteName}} ; </span>
+                    <span class="email-dynamic-content-value">{{cartLink}}Click here{{/cartLink}} ; </span>
+                    <span class="email-dynamic-content-value">{{unsubscribeLink}}Unsubscribe </span>
+                    <span class="email-dynamic-content-value">{{/unsubscribeLink}} ; </span>
+                </div>
+            </div>
+            <div ng-if="symbol" class="col-xs-12 currency-block">
+                <label class="currency-block__text">Display Currency ({{symbol}})</label>
+                <label class="checkbox-switch">
+                    <input type="checkbox" ng-model="schema.variables.displayCurrency.value" ng-change="delay(assemble)">
+                    <span></span>
+                </label>
+            </div>
+        </div>
+    </div>
+</div>

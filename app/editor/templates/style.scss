@@ -1,0 +1,342 @@
+$primary-font: 'Nunito', sans-serif;
+$placeholder-color: #111111;
+$button-bg-color: #39D288;
+$prefix: ghostmonitor-;
+
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+     -moz-border-radius: $radius;
+      -ms-border-radius: $radius;
+          border-radius: $radius;
+}
+@mixin box-sizing($border-box) {
+
+}
+@mixin clear() {
+    *zoom: 1;
+    &:before,
+    &:after {
+        content: " ";
+        display: table;
+    }
+    &:after {
+        clear: both;
+    }
+}
+.#{$prefix}container {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    z-index: 10000002;
+    background-color: rgba(0,0,0,0.7);
+    overflow: auto;
+    padding: 0 10px;
+
+    div.#{$prefix}atc-popup {
+        position: relative;
+        background: transparent;
+        color: #222;
+        padding: 0;
+        font-size: 14px;
+        font-family: $primary-font;
+        font-weight: normal;
+        font-style: normal;
+        line-height: 1;
+        cursor: default;
+        -webkit-overflow-scrolling: touch;
+        z-index: 10000002;
+        width: 100%;
+        height: 100%;
+
+        @media screen and (min-width: 530px) {
+            width: 500px;
+        }
+
+        //Modifiers
+        &.#{$prefix}atc-popup-top {
+            top: 0;
+        }
+        &.#{$prefix}atc-popup-left {
+            left: 0;
+        }
+        &.#{$prefix}atc-popup-bottom {
+            bottom: 0;
+        }
+        &.#{$prefix}atc-popup-right {
+            right: 0;
+        }
+
+        &.#{$prefix}atc-popup-center {
+            margin: 0 auto;
+            .#{$prefix}atc-popup-wrapper {
+                position: relative;
+                top: 50%;
+                -webkit-transform: translateY(-50%);
+                -ms-transform: translateY(-50%);
+                transform: translateY(-50%);
+            }
+        }
+
+        .#{$prefix}atc-popup-wrapper {
+            background: #fff !important;
+            @include border-radius(5px);
+        }
+
+        a {
+            text-decoration: none;
+            line-height: inherit;
+            &:hover,
+            &:focus {
+                text-decoration: none;
+            }
+        }
+
+        button {
+            position: relative;
+            cursor: pointer;
+            font-family: $primary-font;
+            font-weight: normal;
+            font-size: 18px;
+            text-decoration: none;
+            text-align: center;
+            text-shadow: none;
+            width: auto;
+            height: auto;
+            margin: 0 0 20px;
+            min-width: initial;
+            outline: 0;
+            display: inline-block;
+            background: $button-bg-color !important;
+            border-top: none !important;
+            border-left: none !important;
+            border-right: none !important;
+            border-bottom: none !important;
+            color: #fff !important;
+            width: 100%;
+            margin-bottom: 8px;
+            padding: 10px 0;
+            @include border-radius(5px);
+            &:hover {
+                background: darken($button-bg-color, 10%) !important;
+                border-top: none !important;
+                border-left: none !important;
+                border-right: none !important;
+                border-bottom: none !important;
+                color: #fff !important;
+            }
+        }
+
+        input[type="text"] {
+            -webkit-appearance: none;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            color: rgba(0, 0, 0, 0.75);
+            display: block;
+            font-size: 14px;
+            margin: 0 0 16px 0;
+            padding: 8px;
+            height: 37px;
+            width: 100%;
+            max-width: initial;
+            font-family: inherit;
+
+            //@include box-shadow(inset 0 1px 2px rgba(0, 0, 0, 0.1));
+            @include box-sizing(border-box);
+            @include border-radius(5px);
+            &:focus {
+                border-color: #999;
+                background: #fafafa;
+                border-color: #999;
+                outline: none;
+                //@include box-shadow(0 0 5px #999);
+            }
+        }
+
+        .#{$prefix}atc-popup-content {
+            position: relative;
+            z-index: 2;
+            @include border-radius(5px);
+            > *  {
+                padding: 20px;
+            }
+        }
+
+        .#{$prefix}atc-popup-heading-container {
+            //@include clearfix();
+            @include clear();
+            position: relative;
+            text-align: left;
+            background: #f8f9fb;
+            border-bottom: 1px solid #dedede;
+            @include border-radius(5px 5px 0 0);
+            .#{$prefix}icon-container {
+                text-align: center;
+                @media screen and (min-width: 530px) {
+                    float: left;
+                    padding-right: 10px;
+                }
+                span {
+                    background-image: url('data:image/svg+xml;charset=US-ASCII,%3C%3Fxml%20version%3D%221.0%22%20encoding%3D%22utf-8%22%3F%3E%0D%0A%3C%21--%20Generator%3A%20Adobe%20Illustrator%2016.0.0%2C%20SVG%20Export%20Plug-In%20.%20SVG%20Version%3A%206.00%20Build%200%29%20%20--%3E%0D%0A%3C%21DOCTYPE%20svg%20PUBLIC%20%22-//W3C//DTD%20SVG%201.1//EN%22%20%22http%3A//www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd%22%3E%0D%0A%3Csvg%20version%3D%221.1%22%20id%3D%22Reteg_1%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20xmlns%3Axlink%3D%22http%3A//www.w3.org/1999/xlink%22%20x%3D%220px%22%20y%3D%220px%22%0D%0A%09%20width%3D%2250px%22%20height%3D%2250px%22%20viewBox%3D%220%200%2050%2050%22%20enable-background%3D%22new%200%200%2050%2050%22%20xml%3Aspace%3D%22preserve%22%3E%0D%0A%3Cg%3E%0D%0A%09%3Cellipse%20fill%3D%22%23FFFFFF%22%20stroke%3D%22%23E8E9F0%22%20stroke-miterlimit%3D%2210%22%20cx%3D%2224.537%22%20cy%3D%2225.463%22%20rx%3D%2222.916%22%20ry%3D%2222.824%22/%3E%0D%0A%09%3Cpath%20fill%3D%22%23BBC9D2%22%20d%3D%22M10.787%2C19.398L10.787%2C19.398c-0.417-0.972%2C0.231-2.037%2C1.25-2.037h16.389c0.926%2C0%2C1.621%2C0.926%2C1.343%2C1.852%0D%0A%09%09v0.046c-0.185%2C0.602-0.741%2C1.019-1.343%2C1.019H12.037C11.528%2C20.231%2C11.019%2C19.907%2C10.787%2C19.398z%20M13.056%2C24.722L13.056%2C24.722%0D%0A%09%09c0.231%2C0.509%2C0.741%2C0.833%2C1.296%2C0.833h12.5c0.602%2C0%2C1.158-0.417%2C1.343-1.019l0%2C0c0.278-0.926-0.37-1.852-1.343-1.852H14.306%0D%0A%09%09C13.287%2C22.731%2C12.639%2C23.796%2C13.056%2C24.722z%20M33.564%2C15.602L30%2C27.176c-0.186%2C0.602-0.74%2C1.019-1.343%2C1.019H16.62%0D%0A%09%09c-1.018%2C0-1.667%2C1.065-1.296%2C1.991v0.046c0.231%2C0.509%2C0.741%2C0.833%2C1.296%2C0.833h14.074c0.603%2C0%2C1.157-0.416%2C1.343-1.018%0D%0A%09%09l3.564-11.575c0.186-0.602%2C0.741-1.019%2C1.343-1.019h0.093c0.602%2C0%2C1.157-0.417%2C1.343-0.972v-0.046%0D%0A%09%09c0.277-0.926-0.37-1.852-1.343-1.852h-2.13C34.26%2C14.583%2C33.75%2C15%2C33.564%2C15.602z%20M26.806%2C32.453c-1.065%2C0-1.898%2C0.881-1.898%2C1.945%0D%0A%09%09s0.833%2C1.944%2C1.898%2C1.944s1.897-0.88%2C1.897-1.944S27.871%2C32.453%2C26.806%2C32.453z%20M20.556%2C32.453c-1.065%2C0-1.898%2C0.881-1.898%2C1.945%0D%0A%09%09s0.833%2C1.944%2C1.898%2C1.944c1.064%2C0%2C1.898-0.88%2C1.898-1.944S21.574%2C32.453%2C20.556%2C32.453z%22/%3E%0D%0A%09%3Ccircle%20fill%3D%22%23228FFF%22%20cx%3D%2242.824%22%20cy%3D%227.269%22%20r%3D%225.787%22/%3E%0D%0A%09%3Cg%3E%0D%0A%09%09%3Cg%3E%0D%0A%09%09%09%3Cpath%20fill%3D%22%23FFFFFF%22%20d%3D%22M45.787%2C6.759h-2.453V4.352c0-0.278-0.232-0.509-0.51-0.509s-0.51%2C0.231-0.51%2C0.509v2.407h-2.407%0D%0A%09%09%09%09c-0.277%2C0-0.509%2C0.231-0.509%2C0.509s0.231%2C0.509%2C0.509%2C0.509h2.407v2.407c0%2C0.278%2C0.232%2C0.509%2C0.51%2C0.509s0.51-0.231%2C0.51-0.509%0D%0A%09%09%09%09V7.778h2.453c0.277%2C0%2C0.51-0.231%2C0.51-0.509S46.064%2C6.759%2C45.787%2C6.759z%22/%3E%0D%0A%09%09%3C/g%3E%0D%0A%09%3C/g%3E%0D%0A%3C/g%3E%0D%0A%3C/svg%3E%0D%0A');
+                    background-repeat: no-repeat;
+                    display: block;
+                    width: 105px;
+                    height: 105px;
+                    margin: 0 auto;
+                    background-size: 105px;
+                }
+            }
+
+            .#{$prefix}atc-popup-heading {
+                font-size: 3em;
+                font-weight: bold;
+                color: #737f97;
+                font-size: 30px;
+                line-height: 36px;
+                font-family: $primary-font;
+                margin-top: 10px;
+                text-align: center;
+                @media screen and (min-width: 530px) {
+                    text-align: left;
+                }
+            }
+
+            .#{$prefix}atc-popup-text {
+                font-size: 16px;
+                line-height: 20px;
+                color: #bbc9d2;
+                font-family: $primary-font;
+                text-align: center;
+                @media screen and (min-width: 530px) {
+                    text-align: left;
+                }
+            }
+        }
+
+        .#{$prefix}atc-popup-link {
+            position: absolute;
+            bottom: -45px;
+            text-align: left;
+            left: 0;
+            right: 0;
+            color: #fff;
+            font-family: $primary-font;
+            padding-left: 0;
+        }
+
+        .#{$prefix}atc-popup-form {
+            position: relative;
+            text-align: left;
+            font-family: inherit;
+            padding-top: 26px;
+
+            &:after,
+            &:before {
+                content: '';
+                display: block;
+                position: absolute;
+                left: 50%;
+                top: -1px;
+                width: 0;
+                height: 0;
+                margin-left: -16px;
+            }
+            &:before {
+                left: 50%;
+                margin-left: -17px;
+                border-left: 17px solid transparent;
+                border-right: 17px solid transparent;
+                border-top: 17px solid #dedede;
+            }
+            &:after {
+                border-left: 16px solid transparent;
+                border-right: 16px solid transparent;
+                border-top: 16px solid #f8f9fb;
+            }
+        }
+
+        .#{$prefix}atc-popup-close {
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            cursor: pointer;
+            color: #bbb;
+            z-index: 100;
+            background-image: url('data:image/svg+xml;charset=US-ASCII,%3C%3Fxml%20version%3D%221.0%22%20encoding%3D%22utf-8%22%3F%3E%0D%0A%3C%21--%20Generator%3A%20Adobe%20Illustrator%2016.0.0%2C%20SVG%20Export%20Plug-In%20.%20SVG%20Version%3A%206.00%20Build%200%29%20%20--%3E%0D%0A%3C%21DOCTYPE%20svg%20PUBLIC%20%22-//W3C//DTD%20SVG%201.1//EN%22%20%22http%3A//www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd%22%3E%0D%0A%3Csvg%20version%3D%221.1%22%20id%3D%22Reteg_1%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20xmlns%3Axlink%3D%22http%3A//www.w3.org/1999/xlink%22%20x%3D%220px%22%20y%3D%220px%22%0D%0A%09%20width%3D%2250px%22%20height%3D%2250px%22%20viewBox%3D%220%200%2050%2050%22%20enable-background%3D%22new%200%200%2050%2050%22%20xml%3Aspace%3D%22preserve%22%3E%0D%0A%3Cpath%20fill%3D%22%23DCDDDE%22%20d%3D%22M42.582%2C7.692c-9.615-9.89-25.274-9.89-34.89%2C0c-9.615%2C9.615-9.615%2C25.274%2C0%2C34.89s25.274%2C9.615%2C34.89%2C0%0D%0A%09S52.197%2C17.308%2C42.582%2C7.692z%20M35.439%2C35.439c-0.824%2C0.824-2.197%2C0.824-3.021%2C0L25%2C28.021l-7.417%2C7.418%0D%0A%09c-0.824%2C0.824-2.198%2C0.824-3.022%2C0s-0.824-2.197%2C0-3.021L21.978%2C25l-7.417-7.417c-0.824-0.824-0.824-2.198%2C0-3.022%0D%0A%09s2.198-0.824%2C3.022%2C0L25%2C21.978l7.418-7.417c0.824-0.824%2C2.197-0.824%2C3.021%2C0s0.824%2C2.198%2C0%2C3.022L28.021%2C25l7.418%2C7.418%0D%0A%09C36.539%2C33.242%2C36.539%2C34.615%2C35.439%2C35.439z%22/%3E%0D%0A%3C/svg%3E%0D%0A');
+            padding: 9px;
+            background-size: 18px;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+        .ghostmonitor-logo {
+            position: relative;
+            top: 5px;
+            display: inline-block;
+            width: 130px;
+            height: 24px;
+            background: url('data:image/svg+xml;charset=US-ASCII,%3C%3Fxml%20version%3D%221.0%22%20encoding%3D%22utf-8%22%3F%3E%0D%0A%3C%21--%20Generator%3A%20Adobe%20Illustrator%2016.0.0%2C%20SVG%20Export%20Plug-In%20.%20SVG%20Version%3A%206.00%20Build%200%29%20%20--%3E%0D%0A%3C%21DOCTYPE%20svg%20PUBLIC%20%22-//W3C//DTD%20SVG%201.0//EN%22%20%22http%3A//www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd%22%3E%0D%0A%3Csvg%20version%3D%221.0%22%20id%3D%22Layer_1%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20xmlns%3Axlink%3D%22http%3A//www.w3.org/1999/xlink%22%20x%3D%220px%22%20y%3D%220px%22%0D%0A%09%20width%3D%2250px%22%20height%3D%2250px%22%20viewBox%3D%220%200%2050%2050%22%20enable-background%3D%22new%200%200%2050%2050%22%20xml%3Aspace%3D%22preserve%22%3E%0D%0A%3Cpath%20fill%3D%22%23ffffff%22%20d%3D%22M4.966%2C5.258H3.709c-0.26%2C0-0.477%2C0.217-0.477%2C0.52c0%2C0.26%2C0.217%2C0.52%2C0.477%2C0.52h0.26%0D%0A%09c0.173%2C0%2C0.346%2C0.174%2C0.346%2C0.347l0%2C0v0.217C4.1%2C7.035%2C3.709%2C7.078%2C3.493%2C7.078c-0.867%2C0-1.127-0.736-1.127-1.299%0D%0A%09c0-0.866%2C0.434-1.3%2C1.127-1.3c0.303%2C0%2C0.65%2C0.087%2C0.953%2C0.39l0.693-0.737C4.576%2C3.525%2C4.056%2C3.396%2C3.493%2C3.396%0D%0A%09c-1.604%2C0-2.296%2C1.213-2.296%2C2.383c0%2C1.17%2C0.65%2C2.383%2C2.296%2C2.383c0.823%2C0%2C1.56-0.303%2C1.819-0.867V5.648%0D%0A%09C5.312%2C5.432%2C5.183%2C5.258%2C4.966%2C5.258z%20M45.998%2C6.341c0.91-0.043%2C1.299-0.693%2C1.256-1.386c0-0.78-0.477-1.43-1.387-1.43h-1.906%0D%0A%09v4.506h0.434V6.385h1.084l1.385%2C1.646h0.564L45.998%2C6.341z%20M44.395%2C5.952V3.958h1.473c0.65%2C0%2C0.996%2C0.434%2C0.996%2C0.997%0D%0A%09c0%2C0.563-0.346%2C0.997-0.996%2C0.997H44.395L44.395%2C5.952z%20M41.232%2C3.439c-1.387%2C0-2.123%2C1.083-2.123%2C2.339%0D%0A%09c0%2C1.17%2C0.691%2C2.34%2C2.123%2C2.34c1.43%2C0%2C2.123-1.17%2C2.123-2.34C43.398%2C4.565%2C42.662%2C3.439%2C41.232%2C3.439L41.232%2C3.439z%20M41.232%2C7.685%0D%0A%09c-1.17%2C0-1.691-0.91-1.734-1.907c0-1.083%2C0.564-1.906%2C1.734-1.906c1.168%2C0%2C1.689%2C0.91%2C1.689%2C1.906%0D%0A%09C42.965%2C6.732%2C42.4%2C7.685%2C41.232%2C7.685z%20M39.195%2C3.525v0.433h-1.473v4.073h-0.434V3.958h-1.473V3.525H39.195z%20M34.992%2C8.032h0.434%0D%0A%09V3.525h-0.434V8.032z%20M33.693%2C5.692l0.043%2C1.517l-2.773-3.683h-0.26v4.506h0.434V5.735V4.392l2.729%2C3.64h0.26V3.525h-0.432V5.692%0D%0A%09L33.693%2C5.692L33.693%2C5.692z%20M27.973%2C3.439c-1.387%2C0-2.123%2C1.083-2.123%2C2.339c0%2C1.17%2C0.693%2C2.34%2C2.123%2C2.34s2.123-1.17%2C2.123-2.34%0D%0A%09C30.096%2C4.565%2C29.402%2C3.439%2C27.973%2C3.439L27.973%2C3.439z%20M27.973%2C7.685c-1.17%2C0-1.689-0.91-1.732-1.907%0D%0A%09c0-1.083%2C0.562-1.906%2C1.732-1.906s1.689%2C0.91%2C1.689%2C1.906C29.662%2C6.732%2C29.1%2C7.685%2C27.973%2C7.685z%20M23.164%2C5.995l-1.56-2.47h-0.52%0D%0A%09v4.506h0.433v-3.9l1.56%2C2.513h0.13l1.56-2.47v3.856h0.434V3.525H24.68L23.164%2C5.995z%20M8.432%2C3.525L8.432%2C3.525v1.343%0D%0A%09c0%2C0.217-0.13%2C0.347-0.347%2C0.347H7.219c-0.173%2C0-0.347-0.173-0.347-0.347V3.525h-1.17v4.073c0%2C0.217%2C0.173%2C0.434%2C0.39%2C0.434h0.39%0D%0A%09c0.217%2C0%2C0.39-0.217%2C0.39-0.434V6.689c0-0.217%2C0.13-0.348%2C0.347-0.348h0.866c0.173%2C0%2C0.347%2C0.174%2C0.347%2C0.348v0.909%0D%0A%09c0%2C0.217%2C0.173%2C0.434%2C0.39%2C0.434h0.39c0.216%2C0%2C0.39-0.217%2C0.39-0.434V7.381C9.299%2C6.949%2C9.125%2C6.428%2C9.125%2C5.778%0D%0A%09s0.173-1.17%2C0.477-1.603v-0.65H8.432z%20M11.639%2C4.479c-0.693%2C0-1.17%2C0.52-1.17%2C1.3c0%2C0.737%2C0.477%2C1.299%2C1.17%2C1.299%0D%0A%09c0.693%2C0%2C1.17-0.52%2C1.17-1.299S12.375%2C4.479%2C11.639%2C4.479z%20M17.055%2C4.565h0.91c0.173%2C0%2C0.347%2C0.173%2C0.347%2C0.347v2.686%0D%0A%09c0%2C0.217%2C0.173%2C0.434%2C0.39%2C0.434h0.39c0.217%2C0%2C0.39-0.217%2C0.39-0.434V4.955c0-0.216%2C0.13-0.347%2C0.347-0.347h0.91v-1.04h-3.64%0D%0A%09L17.055%2C4.565L17.055%2C4.565z%20M15.451%2C5.172c0.823%2C0.086%2C1.69%2C0.477%2C1.69%2C1.517c0%2C1.039-0.91%2C1.473-1.863%2C1.473%0D%0A%09c-0.693%2C0-1.213-0.13-1.733-0.607c0.217-0.26%2C0.39-0.562%2C0.52-0.953c0.433%2C0.434%2C0.867%2C0.521%2C1.256%2C0.521%0D%0A%09c0.39%2C0%2C0.65-0.13%2C0.65-0.39c0-0.217-0.217-0.347-0.693-0.434c-0.433-0.043-0.823-0.13-1.083-0.303c0-0.086%2C0-0.13%2C0-0.217%0D%0A%09c0-0.65-0.173-1.17-0.477-1.603c0.303-0.52%2C0.953-0.736%2C1.603-0.736s1.126%2C0.13%2C1.56%2C0.52l-0.563%2C0.823%0D%0A%09c-0.303-0.216-0.606-0.303-0.997-0.303c-0.303%2C0-0.563%2C0.087-0.563%2C0.347C14.758%2C5.085%2C15.062%2C5.128%2C15.451%2C5.172L15.451%2C5.172z%22/%3E%0D%0A%3C/svg%3E%0D%0A');
+            background-repeat: no-repeat;
+            background-size: 125px;
+        }
+
+        .#{$prefix}input-field-container {
+            position: relative;
+            .#{$prefix}atc-popup-input {
+                margin-bottom: 10px;
+            }
+            .#{$prefix}atc-popup-error-container {
+                position: absolute;
+                top: 100%;
+                padding-top: 14px;
+                width: 100%;
+                color: #fff;
+                text-align: center;
+                &.has-error {
+                    z-index: 1;
+                }
+            }
+            .#{$prefix}atc-popup-error {
+                position: relative;
+                padding: 5px 15px;
+                background-color: #eb483d;
+                display: inline-block;
+                @include border-radius(5px);
+                &:before {
+                    content: "";
+                    position: absolute;
+                    top: -6px;
+                    left: 50%;
+                    margin-left: -8px;
+                    width: 0;
+                    height: 0;
+                    border-left: 8px solid transparent;
+                    border-right: 8px solid transparent;
+                    border-bottom: 8px solid #eb483d;
+                }
+            }
+        }
+    }
+}
+
+//PLACEHOLDERS
+.#{$prefix}atc-popup-popup input[type="text"]::-webkit-input-placeholder {
+    color: $placeholder-color;
+    font-family: $primary-font;
+    text-align: center;
+}
+.#{$prefix}atc-popup-popup input[type="text"]:-moz-placeholder {
+    color: $placeholder-color;
+    font-family: $primary-font;
+    text-align: center;
+}
+.#{$prefix}atc-popup-popup input[type="text"]::-moz-placeholder {
+    color: $placeholder-color;
+    font-family: $primary-font;
+    text-align: center;
+}
+.#{$prefix}atc-popup-popup input[type="text"]:-ms-input-placeholder {
+    color: $placeholder-color;
+    font-family: $primary-font;
+    text-align: center;
+}

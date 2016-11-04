@@ -1,0 +1,16 @@
+.minicolors-theme-bootstrap {
+    display: inline-block;
+    &.minicolors-position-right {
+        .minicolors-swatch {
+            top: 0;
+            right: -60px;
+            border-radius: 100%;
+        }
+    }
+    .minicolors-swatch {
+        width: 50px; //52px;
+        height: 50px; //52px;
+        border: 1px solid $color-border;
+        cursor: pointer;
+    }
+}

@@ -1,0 +1,22 @@
+<div class="modal-container">
+    <div class="header-block">
+        <div class="header-block__icon">
+            <img src="/images/ezermester_booser2.png" alt="Booster">
+        </div>
+        <div class="header-block__text">
+            <div class="header-block__text--title">This Feature is Coming Soon</div>
+            <div class="header-block__text--description">We're working hard to build this new feature for you. If you want to be notified when it goes live, please subscribe here: </div>
+        </div>
+    </div>
+    <div class="action-block">
+        <form name="fo">
+            <input class="action-block__input" type="text" placeholder="Email address" ng-model="text"></input>
+            <div class="action-block__error-container has-error" style="display: none">
+                <div class="action-block__error-message">
+                    You have to enter a valid e-mail address!
+                </div>
+            </div>
+            <button class="action-block__btn secondary-btn lg-btn" ng-click="subscribeUnderConstruction()" type="submit">Subscribe</button>
+        </form>
+    </div>
+</div>

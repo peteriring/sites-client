@@ -1,0 +1,86 @@
+<div class="full-bg-container" ng-if="false">
+    <div class="row">
+        <form action="">
+            <div class="col-sm-6 col-md-6 col-search">
+                <h1 class="title-with-circle search-title">
+                    Refine search
+                </h1>
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Search for...">
+                    <span class="input-group-btn primary-btn">
+                        <button class="" type="button">
+                            <i class="icon-search"></i>
+                            Search
+                        </button>
+                    </span>
+                </div>
+            </div>
+
+            <div class="col-sm-4 col-sm-push-2 col-md-3 col-md-push-3 col-sort-by">
+                <div class="form-group">
+                    <label for="">Sort by:</label>
+                    <select class="form-control" name="" id="">
+                        <option value="last_seen">Last seen</option>
+                        <option value="email">E-mail</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="col-sm-12">
+                <div class="radio-group">
+                    <div class="radio-container">
+                        <input id="r0" type="radio" name="type" value="0" checked>
+                        <label for="r0"><span></span>All Ghosts</label>
+                    </div>
+                    <div class="radio-container">
+                        <input id="r1" type="radio" name="type" value="1">
+                        <label for="r1"><span></span>Cart Abandoned</label>
+                    </div>
+                    <div class="radio-container">
+                        <input id="r2" type="radio" name="type" value="2">
+                        <label for="r2"><span></span>Cart Recovery</label>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<div ng-show="ghosts.length" mock="ghosts" size="60" class="ghost-table-container">
+    <table class="table" ng-table="tableParams">
+        <tr ng-repeat="ghost in $data" data-id="{{ghost.id}}">
+            <td data-title="'Email'" data-mobile-title="Email" sortable="'email'" class="email">
+                <span>{{ghost.email}}</span>
+            </td>
+            <td data-title="'Phone number'" data-mobile-title="Phone number" class="phone-number">
+                <span>{{ghost.phone | telephone}}</span>
+            </td>
+            <td data-title="'Last seen'" data-mobile-title="Last seen" class="leave-time">
+                <span>{{ghost.lastHeartbeatAt | ghostDatestring}}</span>
+            </td>
+            <td data-title="'Items'" data-mobile-title="Items" class="items">
+                <span>{{ghost.cartItems.length}}</span>
+            </td>
+            <td data-title="'Cart total'" data-mobile-title="Cart total" sortable="'cartTotal'" class="cart-total">
+                <span>{{ghost.cartData.value | gmCurrency }}</span>
+            </td>
+            <td data-title="'Type'" data-mobile-title="Type" class="type {{ ghost.sessionType | sessionType }}">
+                <span class="value">{{ ghost.sessionType | sessionType }}</span>
+                <i class="icon-abandoned-cart"></i>
+                <i class="icon-customer-ghost-cart"></i>
+            </td>
+        </tr>
+    </table>
+</div>
+<div ng-show="!ghosts.length">
+    <div class="container">
+        <div class="no-ghost-block">
+            <div class="col-xs-12 col-sm-7">
+                <h1 class="no-ghost-block__title">I’m so alone here, I couldn't find any Ghosts yet.</h1>
+                <a class="no-ghost-block__button" href="#/dashboard">Back to the Dashboard</a>
+            </div>
+            <div class="col-xs-12 col-sm-5 no-ghost-block__img">
+                <img src="images/no_ghost_booster.png"><img>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,192 @@
+
+/* --- pie chart --- */
+
+.pie-chart {
+    > div {
+        width: 100%;
+        padding-left: 15px;
+        padding-right: 15px;
+        margin-bottom: 20px;
+        @include respond-to(sm-devices-and-up) {
+            width: 25%;
+            float: left;
+            margin-bottom: 0;
+        }
+    }
+}
+
+// VARS
+$pie-circle-width: 0.105em;
+$pie-circle-width-hover: 0.04em;
+
+// colors default
+$pie-primary-color: #2ecc73;
+$pie-secondary-color: #dedfe0;
+$pie-bg-color: #fff;
+$pie-text-color: #9a9a9a;
+
+// CIRCLE
+// classes 2 extend
+.rect-auto {
+    clip: rect(auto, auto, auto, auto);
+}
+
+.pie {
+    position: absolute;
+    border: $pie-circle-width solid $pie-primary-color;
+    width: 1 - (2 * $pie-circle-width);
+    height: 1 - (2 * $pie-circle-width);
+    clip: rect(0em, 0.5em, 1em, 0em);
+    border-radius: 50%;
+    font-size: 140px;
+    @include rotate(0deg);
+}
+
+.pie-fill {
+    @include rotate(180deg);
+}
+
+// main
+.c100 {
+    *, *:before,
+    *:after {
+        @include box-sizing(content-box);
+    }
+
+    position: relative;
+    font-size: 140px;
+    width: 1em;
+    height: 1em;
+    border-radius: 50%;
+    margin: auto;
+    background-color: $pie-secondary-color;
+    @include respond-to(md-devices) {
+        font-size: 180px;
+    }
+    @include respond-to(lg-devices) {
+        font-size: 225px;
+    }
+
+    // center circle to its parent
+    &.center {
+        float: none;
+        margin: 0 auto;
+    }
+
+    // bigger size
+    &.big {
+        font-size: 240px;
+    }
+
+    // smaller size
+    &.small {
+        font-size: 80px;
+    }
+
+    // centered value inside circle
+    > span {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 1;
+        left: 0;
+        //top: 0;
+        width: 100%;
+        line-height: normal;
+        //padding-top: 2.2em;
+        font-size: 0.16em;
+        font-weight: bold;
+        color: $pie-text-color;
+        display: block;
+        text-align: center;
+        white-space: nowrap;
+        @include transition-property(all);
+        @include transition-duration(0.1s);
+        @include transition-timing-function(ease-out);
+
+        > i {
+            display: block;
+            font-size: 0.75em;
+            font-style: normal;
+            font-weight: normal;
+        }
+    }
+
+    // background inside the circle
+    &:after {
+        position: absolute;
+        top: $pie-circle-width;
+        left: $pie-circle-width;
+        display: block;
+        content: " ";
+        border-radius: 50%;
+        background-color: $pie-bg-color;
+        width: 1 - (2 * $pie-circle-width);
+        height: 1 - (2 * $pie-circle-width);
+        @include transition-property(all);
+        @include transition-duration(0.1s);
+        @include transition-timing-function(ease-in);
+    }
+
+    // the slice (mask)
+    .slice {
+        position: absolute;
+        width: 1.2em;
+        height: 1.2em;
+        clip: rect(0em, 1em, 1em, 0.5em);
+    }
+
+    // circle to show the status
+    .bar {
+        position: absolute;
+        border: $pie-circle-width solid $pie-primary-color;
+        width: 1 - (2 * $pie-circle-width);
+        height: 1 - (2 * $pie-circle-width);
+        clip: rect(0em, 0.5em, 1em, 0em);
+        border-radius: 50%;
+        @include rotate(0deg);
+    }
+
+
+    // loop to create all needed elements automatically
+    @for $j from 51 through 100 {
+
+        &.p#{$j} .slice {
+            @extend .rect-auto;
+        }
+
+        &.p#{$j} .bar:after {
+            @extend .pie-fill;
+        }
+
+        &.p#{$j} .fill {
+            @extend .pie;
+            @extend .pie-fill;
+            @include respond-to(md-devices) {
+                font-size: 180px;
+            }
+            @include respond-to(lg-devices) {
+                font-size: 225px;
+            }
+        }
+
+    }
+
+    // loop to rotate all 100 circles
+    @for $j from 1 through 100 {
+        &.p#{$j} .bar {
+            @include rotate((360/100*$j) + deg);
+        }
+    }
+
+    // hover styles
+    &:hover{
+        cursor: default;
+        &:after {
+            top: $pie-circle-width-hover;
+            left: $pie-circle-width-hover;
+            width: 1 - (2 * $pie-circle-width-hover);
+            height: 1 - (2 * $pie-circle-width-hover);
+        }
+    }
+}

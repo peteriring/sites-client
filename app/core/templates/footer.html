@@ -1,0 +1,42 @@
+<div class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3 col-lg-4 logo-container">
+                <a title="GhostMonitor" href="/" class="logo">
+                    <img src="images/ghostmonitor_logo.png" alt="GhostMonitor">
+                </a>
+                <div class="copyright">&copy; Copyright 2016, GhostMonitor</div>
+            </div>
+            <div class="col-xs-6 col-sm-3 col-md-2" ng-if="state.current.name !== 'wizard.process.yourstore' && state.current.name !=='wizard.process.yourself' && state.current.name !=='wizard.process.account'">
+                <ul>
+                    <li ui-sref-active="active"><a ui-sref="app.dashboard">Dashboard</a></li>
+                    <li ui-sref-active="active"><a ui-sref="app.campaigns">Campaigns</a></li>
+                    <li ui-sref-active="active"><a ui-sref="app.ghosts">Ghosts</a></li>
+                    <li ui-sref-active="active"><a ui-sref="app.me.settings">Settings</a></li>
+                </ul>
+            </div>
+            <div class="col-xs-6 col-sm-3 col-md-2" ng-if="state.current.name !== 'wizard.process.yourstore' && state.current.name !=='wizard.process.yourself' && state.current.name !=='wizard.process.account'">
+                <ul>
+                    <li><a href="http://blog.ghostmonitor.com/" target="_blank">Blog</a></li>
+                    <li><a href="https://ghostmonitor.com/about" target="_blank">About</a></li>
+                    <li><a href="http://help.ghostmonitor.com/knowledge-base/how-to-contact-support/" target="_blank">Contact</a></li>
+                    <li ng-if="false"><a href="#" target="_blank">Jobs</a></li>
+                </ul>
+            </div>
+            <div class="col-xs-6 col-sm-3 col-md-2" ng-if="state.current.name !== 'wizard.process.yourstore' && state.current.name !=='wizard.process.yourself' && state.current.name !=='wizard.process.account'">
+                <ul>
+                    <li><a href="http://blog.ghostmonitor.com/2016/03/03/our-privacy-policy/" target="_blank">Privacy</a></li>
+                    <li><a href="http://blog.ghostmonitor.com/2016/03/03/security/" target="_blank">Security</a></li>
+                    <li><a href="http://blog.ghostmonitor.com/2016/03/03/terms-of-service/" target="_blank">Terms of Service</a></li>
+                </ul>
+            </div>
+            <div class="col-xs-6 col-sm-3 col-md-2" ng-if="state.current.name !== 'wizard.process.yourstore' && state.current.name !=='wizard.process.yourself' && state.current.name !=='wizard.process.account'">
+                <ul>
+                    <li><a href="https://twitter.com/GhostMonitor" target="_blank">Twitter</a></li>
+                    <li><a href="https://www.facebook.com/GhostMonitor-1433751980263147/timeline/" target="_blank">Facebook</a></li>
+                    <li ng-if="false"><a href="#">Instagram</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

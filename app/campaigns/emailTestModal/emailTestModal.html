@@ -1,0 +1,20 @@
+<div class="modal-container">
+    <div class="header-block">
+        <span class="header-block__icon icon-cart"></span>
+        <div class="header-block__text">
+            <div class="header-block__text--title">Send this campaign to your inbox</div>
+            <div class="header-block__text--description">All 3 emails will be sent together with sample product data.</div>
+        </div>
+    </div>
+    <div class="action-block">
+        <form name="fo">
+            <input class="action-block__input" type="text" placeholder="Email address" ng-model="text"></input>
+            <div class="action-block__error-container has-error" style="display: none">
+                <div class="action-block__error-message">
+                    You have to enter a valid e-mail address!
+                </div>
+            </div>
+            <button class="action-block__btn secondary-btn lg-btn" ng-click="sendTest()">Send</button>
+        </form>
+    </div>
+</div>

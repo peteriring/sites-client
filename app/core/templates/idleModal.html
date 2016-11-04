@@ -1,0 +1,22 @@
+<div class="modal-header text-center" ng-switch="mode">
+    <h4 class="modal-title">Enter your password to continue where you left off.</h4>
+</div>
+<div class="modal-body">
+    <gm-form atomic="false" model="user" handler="unlock()" trigger="submit" icon="fa fa-refresh" animation="fa-spin">
+        <div class="form-group">
+            <label class="expired-user-name">
+                <i class="icon-user"></i>
+                <strong>{{userName}}</strong>
+            </label>
+            <gm-input type="password" property="model.password" required="true" validate="['required', 'password']">
+        </div>
+        <div class="form-group">
+            <button type="submit" class="primary-btn large-btn">Countinue session</button>
+        </div>
+    </gm-form>
+    <div class="row">
+        <div class="form-group text-center">
+            <button ng-click="close()" class="btn btn-link">Not {{userName}}?</button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,85 @@
+
+.atc.popup.editor {
+    .navbar {
+        border-bottom: 1px solid $color-border;
+    }
+    .atc-editor-header {
+        border-bottom: 1px solid $color-border;
+        margin-top: 20px;
+        margin-bottom: 48px;
+        padding-bottom: 20px;
+    }
+    .form-group {
+        margin-bottom: 25px;
+    }
+    .reset-button {
+        margin-top: 10px;
+        min-width: 180px;
+    }
+    .footer {
+        margin-top: 60px;
+    }
+    .minicolors-swatch.minicolors-sprite {
+        border-radius: 100%;
+        width: 50px;
+        height: 50px;
+        border: 1px solid #e6e6e6;
+        cursor: pointer;
+        .minicolors-swatch-color {
+            border-radius: inherit;
+            border: 1px solid;
+            border-color: inherit;
+        }
+    }
+    .theme-color-container {
+        margin-top: 20px;
+        .theme-colors {
+            margin: 0;
+            padding: 0;
+            list-style-type: none;
+            @include clearfix();
+            li {
+                float: left;
+                margin-top: 15px;
+                margin-right: 10px;
+                cursor: pointer;
+            }
+        }
+
+        .custom-settings {
+            padding: 10px;
+            margin: 0;
+            border: 2px dashed $color-border;
+            border-radius: 5px;
+            position: relative;
+            color: #c9c9c9;
+            font-size: 15px;
+        }
+
+        .theme-color {
+            position: relative;
+            width: 42px;
+            height: 42px;
+            border: 1px solid $color-border;
+            border-radius: 5px;
+            background-color: blue;
+            &:before {
+                content: "";
+                position: absolute;
+                top: 50%;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                background-color: #f3f5f6;
+            }
+        }
+
+        .theme-color-1 { background-color: #2bba82; }
+        .theme-color-2 { background-color: #3498db; }
+        .theme-color-3 { background-color: #f15b28; }
+        .theme-color-4 { background-color: #9b59b6; }
+    }
+    .large-btn {
+        margin-bottom: 10px;
+    }
+}

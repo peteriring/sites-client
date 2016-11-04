@@ -1,0 +1,44 @@
+
+<div class="form-group form-inline time-interval">
+    <label>Send</label>
+    <div class="form-group" ng-class="{'has-error': scheduleVariables.error === true}">
+        <input type="number" ng-model="scheduleVariables.value" class="form-control" />
+    </div>
+
+    <select ng-model="interval" ng-change="setInterval(interval)" class="form-control">
+        <option ng-value="minutes">minutes</option>
+        <option ng-value="hours">hours</option>
+    </select>
+    <span>after abandonment</span>
+    <div class="popover-example animate-if" ng-if="scheduleVariables.error">
+      <div class="popover bottom">
+        <div class="arrow"></div>
+        <div class="popover-content">
+          <p>The minimal delivery time is 10 minutes</p>
+        </div>
+      </div>
+    </div>
+</div>
+
+<div ng-repeat="(key, text) in schema.text">
+    <div ng-switch="text.type">
+        <div ng-switch-when="input">
+            <div class="form-group">
+                <label>{{text.label}}</label>
+                <input type="text" class="form-control" ng-model="text.value" ng-change="delay(recompile)">
+            </div>
+        </div>
+        <div ng-switch-when="subject">
+            <div class="form-group">
+                <label>{{text.label}}</label>
+                <input type="text" class="form-control" ng-model="text.value" ng-change="delay(recompile)">
+            </div>
+        </div>
+        <div ng-switch-when="textarea">
+            <div class="form-group">
+                <label for="body-text">{{text.label}}</label>
+                <textarea id="body-text" class="form-control long-text" msd-elastic="\n" ng-model="text.value" rows="7" ng-change="delay(recompile)" nl2br></textarea>
+            </div>
+        </div>
+    </div>
+</div>

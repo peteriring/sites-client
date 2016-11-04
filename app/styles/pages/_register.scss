@@ -1,0 +1,213 @@
+
+
+.signup-steps {
+    list-style-type: none;
+    margin: 0;
+    padding-top: 27px;
+    padding-bottom: 27px;
+    display: inline-block;
+    width: 250px;
+    @include clearfix();
+    @include respond-to(sm-devices-and-up) {
+        width: auto;
+    }
+    li {
+        position: relative;
+        display: block;
+        color: #c9c9c9;
+        font-size: 16px;
+        cursor: pointer;
+        padding-bottom: 30px;
+        @include respond-to(sm-devices) {
+            padding-right: 25px;
+        }
+        @include respond-to(sm-devices-and-up) {
+            padding-bottom: 0;
+            display: inline-block;
+            float: left;
+        }
+        @include respond-to(md-devices-and-up) {
+            padding-right: 90px;
+            min-width: 240px;
+        }
+        &:after {
+            content: '';
+            position: absolute;
+            z-index: 0;
+            top: 0;
+            bottom: 0;
+            left: 15px;
+            border-left: 1px solid #c9c9c9;
+            @include respond-to(sm-devices-and-up) {
+                top: 50%;
+                bottom: auto;
+                transform: translateY(-50%);
+                right: 0;
+                left: auto;
+                width: 100%;
+                height: 1px;
+                border-top: 1px dashed #c9c9c9;
+            }
+        }
+        &:last-child {
+            padding-right: 0;
+            padding-bottom: 0;
+            &:after {
+                content: none;
+            }
+        }
+        &.active {
+            .signup-step-container {
+                border-color: $color-secondary;
+            }
+            .step {
+                border-color: $color-secondary;
+                color: $color-secondary;
+                font-weight: bold;
+            }
+            .step-name {
+                color: $color-secondary;
+            }
+        }
+        &.ready {
+            .step {
+                @include svg('icon-pipe', #c9c9c9);
+                background-size: 20px;
+                background-position: center center;
+                span {
+                    opacity: 0;
+                }
+            }
+        }
+        .signup-step-container {
+            position: relative;
+            border: 2px solid #c9c9c9;
+            padding: 5px 15px 5px 50px;
+            min-width: 200px;
+            border-radius: 5px;
+            background-color: #f6f9fa;
+            z-index: 1;
+        }
+        .step {
+            position: absolute;
+            top: -10px;
+            left: -12px;
+            width: 52px;
+            height: 52px;
+            border: 2px solid #c9c9c9;
+            background-color: #f6f9fa;
+            border-radius: 100%;
+            font-weight: bold;
+            text-align: center;
+            font-size: 25px;
+            line-height: 48px;
+        }
+    }
+}
+
+.setup.your.emails,
+.tell.us.about.your.shop,
+.install.ghostmonitor {
+    .gotologin {
+        margin: 40px auto;
+        width: 196px;
+        display: block;
+        img {
+            width: 100%;
+        }
+    }
+    .full-bg-container {
+        text-align: center;
+        &,
+        &:before,
+        &:after {
+            background-color: #f6f9fa;
+        }
+    }
+    .step-title {
+        color: #9a9a9a;
+        font-size: 25px;
+        line-height: 30px;
+        text-align: center;
+        margin: 56px 0 25px 0;
+    }
+    .btn-container {
+        .large-btn {
+            min-width: 143px;
+        }
+    }
+    .footer {
+        margin-top: 30px;
+        .row {
+            > div {
+                display: none;
+            }
+            .logo-container {
+                display: block;
+                width: 100%;
+                text-align: center;
+                padding-bottom: 0;
+            }
+        }
+    }
+}
+
+.install.ghostmonitor {
+
+    .primary-btn {
+        margin: 28px 0;
+    }
+
+    .title-with-circle {
+        margin-left: -8px;
+    }
+}
+
+.tell.us.about.your.self {
+    .step-title {
+        margin-top: 55px;
+        margin-bottom: 45px;
+    }
+    .title-with-circle {
+        margin-bottom: 30px;
+    }
+    .btn-container {
+        .large-btn {
+            margin-top: 5px;
+            margin-bottom: 29px;
+        }
+    }
+}
+
+.setup.your.emails {
+    .step-title {
+        margin-top: 48px;
+        margin-bottom: 52px;
+    }
+    .title-with-circle {
+        margin-bottom: 26px;
+    }
+    .btn-container {
+        .large-btn {
+            margin-top: -15px;
+            margin-bottom: 25px;
+        }
+    }
+}
+
+.please.wait.a.second {
+    .arrange-center {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+    }
+}
+
+.signup-label {
+    color: #adadad;
+    font-size: 15px;
+    margin-top: 15px;
+    margin-bottom: -34px;
+    text-align: center;
+}

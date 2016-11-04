@@ -1,0 +1,48 @@
+<div class="processing-modal">
+    <div class="modal-header text-center" ng-class="{'pending': modalStatus==='pending', 'failure': modalStatus==='failed', 'idle': modalStatus==='idle'}">
+        <h4 class="modal-title" >Updating Payment Information</h4>
+    </div>
+    <div class="modal-body">
+        <div class="row text-center">
+    	    <label class="expired-user-name"></label>
+    	    <strong ng-if="modalStatus==='pending'">
+    	    Your payment information is being evaluated at the moment, we require your patience for a few seconds.
+    	    </strong>
+            <strong ng-if="modalStatus==='idle'">
+            An Unknown error occurred please contact the support team
+            </strong>
+            <strong ng-if="modalStatus==='failed'">
+            An error occurred durning processing payment, please try again or with an other card or contact the support team
+            </strong>
+    	    <strong ng-if="modalStatus==='successful'">
+    	    Successfully processed payment
+    	    </strong>
+        </div>
+        <div class="text-center">
+            <a class="primary-btn medium-btn" ng-class="{'pending': modalStatus==='pending', 'failure': modalStatus==='failed', 'idle': modalStatus==='idle'}" ng-click="closeModal()">
+                <span ng-if="modalStatus==='pending'">
+                    <span class="fa fa-refresh fa-spin"></span>
+                    Processing...
+                </span>
+                <span ng-if="modalStatus==='idle'">
+                    <span class="fa fa-ban"></span>
+                    Return
+                </span>
+                <span ng-if="modalStatus==='failed'">
+                    <span class="fa fa-ban"></span>
+                    Change your Settings
+                </span>
+                <span ng-if="modalStatus==='successful'">
+                    <span class="fa fa-check"></span>
+                    Success
+                </span>
+            </a>
+            <a class="primary-btn medium-btn pending" ng-if="modalStatus==='failed'" ng-click="processPayment()">
+                <span ng-if="modalStatus==='failed'">
+                    <span class="fa fa-refresh"></span>
+                    Try again
+                </span>
+            </a>
+        </div>
+    </div>
+</div>

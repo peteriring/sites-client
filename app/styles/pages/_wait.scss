@@ -1,0 +1,74 @@
+.forgot.your.password {
+    height: 100%;
+    .site,
+    .site > div {
+        // @media (min-height: 700px) {
+        //     height: 100%;
+        // }
+    }
+    .container {
+        position: relative;
+        margin-top: 30px;
+        // @media (min-height: 700px) {
+        //     top: 50%;
+        //     transform: translateY(-50%);
+        //     margin-top: 0;
+        // }
+    }
+    img {
+        max-width: 995px;
+        width: 100%;
+    }
+    .page-title {
+        margin: 0;
+        color: $color-primary-font;
+        font-size: 40px;
+        padding-bottom: 40px;
+    }
+    .label-text {
+        font-size: 20px;
+        color: #949494;
+        display: block;
+        padding-top: 33px;
+        padding-bottom: 20px;
+    }
+
+
+    .inputs-container {
+        max-width: 710px;
+        margin: 0 auto;
+    }
+    .form-control {
+        border: 2px solid $color-secondary;
+        height: 58px;
+    }
+    .form-group {
+        &.password-field {
+            @include respond-to(sm-devices-and-up) {
+                float: left;
+                margin-right: -235px;
+                width: 100%;
+            }
+            .password-field-container {
+                @include respond-to(sm-devices-and-up) {
+                    margin-right: 250px;
+                }
+            }
+        }
+        &.btn-container {
+            @include respond-to(sm-devices-and-up) {
+                width: 235px;
+                float: right;
+            }
+        }
+    }
+    .help-block {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    .secondary-btn {
+        width: 235px;
+        height: 58px;
+    }
+}

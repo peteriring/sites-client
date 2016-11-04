@@ -1,0 +1,188 @@
+.daterangepicker {
+    padding: 10px;
+    border-radius: 15px;
+    margin-top: 15px;
+    &.opensleft {
+        &:before {
+            top: -15px;
+            right: 40px;
+            border-width: 15px;
+        }
+        &:after {
+            top: -14px;
+            right: 40px;
+            border-width: 15px;
+        }
+        .ranges {
+            float: none;
+            clear: both;
+            padding-top: 8px;
+        }
+        .calendar {
+            margin: 4px auto;
+            float: none;
+            @include respond-to(sm-devices-and-up) {
+                float: left;
+                margin: 4px;
+            }
+        }
+    }
+    &.opensright {
+        &:after {
+            left: 171px;
+        }
+        &:before {
+            left: 170px;
+        }
+
+        @include respond-to(sm-devices-and-up) {
+            &:after {
+                left: 381px;
+            }
+            &:before {
+                left: 380px;
+            }
+        }
+    }
+    &.dropdown-menu {
+        max-width: none;
+        z-index: 3000;
+        left: auto !important;
+        right: 20px !important;
+        width: 270px;
+
+        @include respond-to(sm-devices-and-up) {
+            right: 60px !important;
+            width: 512px;
+        }
+    }
+    .ranges {
+        width: auto;
+        ul {
+            display: block;
+            @include clearfix();
+            @include respond-to(phone, xs-devices) {
+                max-width: 270px;
+            }
+        }
+        li {
+            border: 1px solid $color-secondary;
+            border-radius: 20px;
+            background: #fff;
+            margin-right: 10px;
+            float: left;
+            width: 110px;
+            text-align: center;
+            padding-top: 5px;
+            padding-bottom: 5px;
+            &:hover,
+            &.active {
+                background: $color-secondary;
+            }
+            &:nth-child(4n+1) {
+                clear: both;
+            }
+        }
+        .range_inputs > div {
+            //float: none;
+        }
+
+        .daterangepicker_start_input {
+            //float: left;
+        }
+    }
+    table {
+        border-collapse: separate;
+        //border-spacing: 5px;
+    }
+    .calendar thead {
+        tr {
+            background-color: #eeeff0;
+            color: #5c6567;
+        }
+        th {
+            font-weight: normal;
+            text-transform: uppercase;
+            font-size: 10px;
+            border-radius: 0;
+        }
+    }
+    tr td.in-range {
+        &:first-of-type {
+            border-top-left-radius: 100%;
+            border-bottom-left-radius: 100%;
+        }
+        &:last-of-type {
+            border-top-right-radius: 100%;
+            border-bottom-right-radius: 100%;
+        }
+    }
+    td {
+        position: relative;
+        &.available:not(.in-range):not(.active),
+        &.disabled {
+            border: 1px solid $color-border;
+            border-radius: 100%;
+            &.off:not(.available):before {
+                content: "";
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                background-color: #eeefef;
+                z-index: 1;
+                border-radius: 100%;
+            }
+        }
+        &.available {
+            &:hover {
+                background-color: $color-secondary;
+                color: #fff;
+            }
+            &.today.in-range {
+                border-color: $color-secondary;
+                background-color: $color-secondary;
+                color: #fff;
+            }
+        }
+        &.in-range {
+            background-color: $color-secondary;
+            color: #fff;
+            &:hover {
+                 background-color: darken($color-secondary, 10%);
+            }
+        }
+        &.active {
+            &,
+            &.active {
+                border-color: $color-secondary;
+                background-color: $color-secondary;
+                color: #fff;
+            }
+            &.start-date {
+                border-top-left-radius: 100%;
+                border-bottom-left-radius: 100%;
+            }
+            &.end-date {
+                border-top-right-radius: 100%;
+                border-bottom-right-radius: 100%;
+            }
+        }
+    }
+
+    .apply-btn {
+        @extend %primary-button;
+        float: right;
+        margin-top: 15px;
+        @include respond-to(phone, xs-devices) {
+            clear: both;
+        }
+    }
+    .cancel-btn {
+        @extend %secondary-button;
+        float: right;
+        margin-top: 15px;
+        margin-right: 5px;
+    }
+}

@@ -1,0 +1,89 @@
+.site {
+	padding-top: 100px;
+}
+
+.form-control {
+	height: 50px;
+}
+
+.btn-green {
+	height: 50px;
+	background-color: #38BB22;
+	color: white !important;
+}
+
+.btn-green > span {
+	text-transform: uppercase;
+	font-weight: bold;
+}
+
+.modal-backdrop.fade.in {
+	background-color: #336699;
+	opacity: 1 !important;
+}
+
+.modal-dialog {
+	margin-top: 100px;
+}
+
+.modal-content {
+	-webkit-box-shadow: none !important;
+  	box-shadow: none !important;
+	background: none !important;
+	border: none !important;
+}
+
+.modal-header {
+	border-bottom: none !important;
+}
+
+.close {
+	color: white;
+}
+
+.modal-body {
+	color: white;
+}
+
+h3 {
+	margin-bottom: 1.5em;
+  	font-size: 22px;
+}
+
+.row  + .row {
+	margin-top: 1em;
+}
+
+label.col-md-3.text-right {
+  margin-top: 11px;
+  font-size: 16px;
+}
+
+.form-control {
+	border-right: none;
+}
+
+.has-error .form-control,
+.has-success .form-control {
+	border-color: initial !important;
+}
+
+.has-error .input-group-addon,
+.has-success .input-group-addon {
+	border: 1px solid black;
+}
+
+.input-group-addon {
+	
+	border-left: none !important;
+	background-color: white !important;
+}
+
+.input-group-addon > span {
+	opacity: 0;
+	color: #38BB22;
+}
+
+.has-success .input-group-addon > span {
+	opacity: 1;
+}

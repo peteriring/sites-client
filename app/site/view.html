@@ -1,0 +1,257 @@
+<div>
+    <gm-form handler=updateSite(value) atomic='false' model='user.site' trigger="focus" icon="icon-save" animation="faa-passing animated" name="site" role="form" access="editSite">
+        <div ng-if="false" class="alert alert-danger" role="alert">
+            <span class="fa fa-exclamation-circle" aria-hidden="true"></span>
+            <span class="sr-only">Error:</span>
+            You have no active sites
+        </div>
+
+        <div class="page-header">
+            <h1 class="title-with-circle">Site settings</h1>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-md-6">
+                <div class="form-group">
+                    <label>Site Name</label>
+                    <gm-input type="text" property="model.name" validate="required"></gm-input>
+                </div>
+            </div>
+            <div class="col-xs-12 col-md-6">
+                <div ng-class="{'input-error': site.currency.$invalid}" class="form-group">
+                    <label>Currency</label>
+                    <gm-input type="gm-select" property="model.currency" validate="required" placeholder="Select a currency" display="element.display" save="element.value" array="currencies"></gm-input>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-md-6">
+                <div class="form-group">
+                    <label>Site URL</label>
+                    <gm-input type="text" property="model.domain" validate="['url', 'domain', 'required']"></gm-input>
+                </div>
+            </div>
+            <div class="col-xs-12 col-md-6">
+                <div ng-class="{'input-error': site.engine.$invalid}" class="form-group">
+                    <label>Engine</label>
+                    <gm-input type="gm-select" property="model.engine" validate="required" display="element.display" save="element.value" placeholder="Select an engine" array="engines"></gm-input>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-md-6">
+                <div ng-class="{'input-error': site.timezone.$invalid}" class="form-group">
+                    <label>Timezone</label>
+                    <gm-input type="gm-select" property="model.timeZone" validate="required" placeholder="Select a time zone" display="element.display" save="element.value" array="timeZones" search-disabled="true"></gm-input>
+                </div>
+            </div>
+            <!-- <div class="col-xs-12 col-md-6 custom-padding-top20">
+                <div class="form-group">
+                    <button ng-disabled="site.$invalid" type=submit class="primary-btn large-btn"><i class="fa fa-globe"></i> Update Site</button>
+                </div>
+            </div> -->
+            <div class="col-xs-12 col-md-6">
+                <div ng-class="{'input-error': form.formal.$invalid}" class="form-group">
+                    <label>Language of your emails</label>
+                    <div class="ui-select-wrapper">
+                        <gm-input type="gm-select" property="model.campaignItemLanguage" validate="required" placeholder="Select a type" array="campaignItemLanguages" display="element.display" save="element.value"></gm-input>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="form-group">
+                    <button ng-disabled="site.$invalid" type=submit class="primary-btn large-btn"> Save Changes</button>
+                </div>
+            </div>
+        </div>
+    </gm-form>
+</div>
+
+<div>
+    <gm-form handler=updateSite(value) atomic='false' model='user.site' trigger="focus" icon="icon-save" animation="faa-passing animated" name="site" role="form" access="editSite">
+
+        <div class="page-header">
+            <h1 class="title-with-circle">Email settings</h1>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-md-6">
+                <div class="form-group">
+                    <label>Sender Name</label>
+                    <gm-input type="text" property="model.emailSettings.senderName" validate="required"></gm-input>
+                </div>
+            </div>
+            <div class="col-xs-12 col-md-6">
+                <div ng-class="{'input-error': site.currency.$invalid}" class="form-group">
+                    <label>Sender Email</label>
+                    <gm-input type="text" property="model.emailSettings.senderEmail" validate="['required', 'email']"></gm-input>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="form-group">
+                    <button ng-disabled="site.$invalid" type=submit class="primary-btn large-btn"> Save Changes</button>
+                </div>
+            </div>
+        </div>
+    </gm-form>
+</div>
+
+<div class="page-header custom-page-header">
+    <h1 class="title-with-circle">Anti-Spam Settings</h1>
+</div>
+
+<div>
+    <gm-form handler=updateSite(value) atomic='false' model='user.site' trigger="focus"  icon="icon-save" animation="faa-passing animated" name="antiSpam" role="form" access="editSite">
+        <div class="row">
+            <div class="col-xs-12 col-md-6">
+                <div class="form-group">
+                    <label>Company / Organization</label>
+                    <gm-input type="text" property="model.antiSpam.company" validate="required"></gm-input>
+                </div>
+            </div>
+            <div class="col-xs-12 col-md-6">
+                <div class="row">
+                    <div class="col-xs-12 col-md-6">
+                        <div class="form-group">
+                            <label>City</label>
+                            <gm-input type="text" property="model.antiSpam.city" validate="required"></gm-input>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-md-6">
+                        <div class="form-group">
+                            <label>Zip / Postal Code</label>
+                            <gm-input type="text" property="model.antiSpam.zipCode" validate="['required']"></gm-input>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-md-6">
+                <div class="form-group">
+                    <label>Address</label>
+                    <gm-input type="text" property="model.antiSpam.address" validate="required"></gm-input>
+                </div>
+            </div>
+            <div class="col-xs-12 col-md-6">
+                <div class="row">
+                    <div class="col-xs-12 col-md-6">
+                        <div ng-class="{'input-error': antiSpam.country.$invalid}" class="form-group">
+                            <label>Country</label>
+                            <gm-input type="gm-select" property="model.antiSpam.country" validate="required" placeholder="Select a country"  before="checkCountries" after="selectCountry"></gm-input>
+
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-md-6">
+                        <div ng-class="{'input-error': antiSpam.province.$invalid}" class="form-group">
+                            <label>State / Province</label>
+                            <gm-input type="gm-select" property="model.antiSpam.state" validate="required" placeholder="Select a state" array="states"></gm-input>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-md-6">
+                <div ng-class="{'input-error': antiSpam.industry.$invalid}" class="form-group">
+                    <label>Industry</label>
+                    <gm-input type="gm-select" multi="true" property="model.antiSpam.industry" validate="required" array="industries" placeholder="Select one or more industry"></gm-input>
+                </div>
+            </div>
+        </div>
+
+        <hr class="divider">
+        <div class="ghost-frequency-limit-container">
+            <div class="row">
+                <div class="col-xs-12 col-md-6">
+                    <div class="row">
+                        <div class="col-xs-12 col-md-6">
+                            <h2 class="title-with-circle">Ghost Frequency Limit</h2>
+                        </div>
+                        <div class="col-xs-12 col-md-4">
+                            <p>A ghost have to be</p>
+                        </div>
+                        <div class="col-xs-12 col-md-2">
+                            <div class="form-group">
+                                <input type="number" class="form-control" ng-model="ghostFrequency.value">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-md-6">
+                    <div class="row">
+                        <div class="col-xs-12 col-md-3">
+                            <div class="form-group">
+                                <select id="basic" ng-model="ghostFrequency.interval" class="selectpicker show-tick form-control" data-live-search="true" value="week(s)">
+                                    <option value="days">day(s)</option>
+                                    <option value="hours">hour(s)</option>
+                                    <option value="minutes">minute(s)</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-md-9">
+                            <p>
+                                old before become ghost again
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- <hr class="divider">
+
+        <div class="email-frequency-limit-container">
+            <div class="row">
+                <div class="col-xs-12 col-md-6">
+                    <div class="row">
+                        <div class="col-xs-12 col-md-6">
+                            <h2 class="title-with-circle">Email Frequency Limit</h2>
+                        </div>
+                        <div class="col-xs-12 col-md-4">
+                            <p>
+                                It has to be
+                            </p>
+                        </div>
+                        <div class="col-xs-12 col-md-2">
+                            <div class="form-group">
+                                <input ng-disabled="true" type="text" class="form-control" value="12">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-xs-12 col-md-6">
+                    <div class="row">
+                        <div class="col-xs-12 col-md-3">
+                            <div class="form-group">
+                                <select ng-disabled="true" id="basic" class="selectpicker show-tick form-control" data-live-search="true" value="hour(s)">
+                                    <option>month(s)</option>
+                                    <option>week(s)</option>
+                                  <option>day(s)</option>
+                                  <option>hour(s)</option>
+                                  <option>minute(s)</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-md-9">
+                            <p>
+                                between 2 emails in the AR series
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> -->
+
+        <div class="row">
+            <div class="col-xs-12 col-md-12">
+                <div class="form-group">
+                    <button ng-disabled="antiSpam.$invalid" type="submit"  class="primary-btn large-btn"> Save Changes</button>
+                </div>
+            </div>
+        </div>
+    </gm-form>
+</div>

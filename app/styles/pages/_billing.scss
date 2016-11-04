@@ -1,0 +1,116 @@
+.billing {
+    color: #5c6567;
+    .modal-content {
+        max-width: 500px;
+        margin: 0 auto;
+    }
+    .bonus-charge-alert {
+        margin-top: 25px;
+    }
+    .processing-modal {
+        padding: 10px;
+        .modal-header {
+            background-color: #f6f9fa;
+            &.failure {
+              background-color: #f54747;
+              color: #ffffff;
+            }
+            &.idle {
+              background-color: #F0AD4E;
+              color: #ffffff;
+            }
+        }
+        .primary-btn {
+            margin: 20px 0;
+            min-width: 200px;
+            font-size: 18px;
+            &.pending {
+              background-color: #6CE2A0;
+            }
+            &.failure {
+              background-color: #f54747;
+            }
+            &.idle {
+              background-color: #F0AD4E;
+            }
+        }
+        .text-below {
+            margin-top: 20px;
+        }
+    }
+
+    .col {
+        padding: 0 12px;
+        @include respond-to(md-devices-and-up) {
+            padding: 0 7px 0 7px;
+        }
+
+        &--first {
+            padding: 0 12px;
+            @include respond-to(md-devices-and-up) {
+                padding: 0 7px 0 20px;
+            }
+        }
+    }
+    .credit-card {
+        margin-bottom: -34px;
+    }
+    .page-header {
+        margin-top: 50px;
+    }
+    .question {
+        padding-bottom: 16px;
+        padding-top: 36px;
+        padding-left: 40px;
+        @include respond-to(phone) {
+            padding-left: 20px;
+            padding-right: 20px;
+            text-align: center;
+        }
+    }
+    .large-btn {
+        margin-top: 12px;
+        margin-left: 10px;
+        margin-bottom: 20px;
+        &:disabled {
+          background-color: #6ECC97;
+        }
+    }
+    .form-group {
+        &--with-button {
+            @include respond-to(phone) {
+                text-align: center;
+            }
+        }
+    }
+    .radio-container input[type="radio"] {
+        left: 12px;
+    }
+    .expiration {
+        padding: 0;
+        &__label {
+            margin-left: 10px;
+            @include respond-to(md-devices-and-up) {
+                margin-left: 0px;
+            }
+        }
+        &__input {
+            margin-bottom: 10px;
+        }
+    }
+    .col-xs-2 {
+        padding: 0;
+    }
+    .radio {
+        &--yes {
+            @include respond-to(sm-devices) {
+                margin-left: -30px;
+            }
+        }
+        &--no {
+            @include respond-to(md-devices-and-up) {
+                margin-left: -80px;
+            }
+        }
+    }
+}

@@ -1,0 +1,17 @@
+<div class="shopify-modal">
+    <div class="modal-header text-center" ng-switch="mode">
+        <h4 class="modal-title">Shopify engine</h4>
+    </div>
+    <div class="modal-body">
+        <div class="row text-center">
+    	    <label class="expired-user-name"></label>
+    	    <strong>To continue the installation, please follow the link below.</strong>
+        </div>
+        <div class="text-center">
+            <a ng-href="{{shopifyUrl}}" class="primary-btn medium-btn">Install</a>
+        </div>
+        <div class="row text-center text-below">
+            GhostMonitor will be installed to [{{user.site.domain}}]
+        </div>
+    </div>
+</div>

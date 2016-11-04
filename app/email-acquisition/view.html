@@ -1,0 +1,71 @@
+<div class="full-bg-container">
+    <section class="atc-popup-panel">
+        <header class="atc-popup-panel-header">
+            <div class="col icon-cart-col">
+                <i class="icon-cart"></i>
+            </div>
+            <div class="col title-col">
+                <h2 class="atc-popup-panel-title">Add To Cart Popup</h2>
+                <p class="atc-popup-panel-desc">This popup activates when Add to Cart button is clicked and it requires a valid email address to continue. If the cart is abandoned, the recovery campaign will be fired. NOTE: If the popup doesn't show up, please
+                <a href="http://help.ghostmonitor.com/knowledge-base/the-add-to-cart-popup-doesnt-show-up-whats-now/" target="_blank">click here.</a>
+                </p>
+            </div>
+            <div class="col checkbox-switch-col">
+                <label class="checkbox-switch">
+                    <input type="checkbox" ng-model="tues['atc-popup'].isEnabled" ng-change="togglePopup('atc-popup')">
+                    <span></span>
+                </label>
+                <a ui-sref="app.editor.popup({slug: 'atc-popup'})" class="secondary-btn medium-btn">
+                    <i class="icon-edit"></i>
+                    Edit
+                </a>
+            </div>
+        </header>
+
+        <div class="atc-popup-panel-content">
+            <div class="row">
+                <div class="col-sm-6 col col--with-boxes">
+                    <div class="count-box-container count-box-container--small">
+                        <span mock="emailAcquireTypes" class="count-box-count">{{ emailAcquireTypes.atc_show }}</span>
+                        Unique Shows
+                    </div>
+                    <div class="count-box-container count-box-container--small">
+                        <span mock="emailAcquireTypes" class="count-box-count">{{emailAcquireTypes.atc}}</span>
+                        Collected Emails
+                    </div>
+                    <div class="count-box-container">
+                        <span mock="emailAcquireTypes" class="count-box-count">{{ emailAcquireTypes.conversionRate | percent }}</span>
+                        Conversion Rate
+                    </div>
+                </div>
+                <div class="col-sm-6 col">
+                    <iframe style="width: 550px; height: 400px;"></iframe>
+                    <!-- <img src="images/atc-popup-placeholder.png" alt=""> -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <section class="row">
+        <div class="email-box-container">
+            <div class="col-sm-4 col" ng-repeat="box in boxes">
+                <div class="inside inside-full-height">
+                    <div class="email-box">
+                        <header class="email-box-header">
+                            <h2 class="email-box-title">{{box.title}}</h2>
+                            <p class="email-box-desc">{{box.desc}}</p>
+                        </header>
+                        <div class="email-box-content">
+                            <div class="count-box-container">
+                                <span mock="emailAcquireTypes" class="count-box-count">{{emailAcquireTypes[box.stat]}}</span>
+                                {{box['count-desc']}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>

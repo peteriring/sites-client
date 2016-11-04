@@ -1,0 +1,56 @@
+
+
+
+<uploader-wrapper model="schema.image.logo.value" fallback="schema.image.logo.default" storagename="logo" compile="delay(assemble)"></uploader-wrapper>
+
+<div class="theme-color-container">
+    <label for="">Theme color</label>
+
+    <ul class="theme-colors">
+        <li class="theme-color theme-color-1" ng-click="preset('#f3f5f6', '#878787', '#878787','#2bba82','#f3f5f6','#ffffff','#2bba82','#2bba82')"></li>
+        <li class="theme-color theme-color-2" ng-click="preset('#f3f5f6','#878787','#878787','#3498db','#f3f5f6','#ffffff','#3498db','#3498db')"></li>
+        <li class="theme-color theme-color-3" ng-click="preset('#f3f5f6','#878787','#878787','#f15b28','#f3f5f6','#ffffff','#f15b28','#f15b28')"></li>
+        <li class="theme-color theme-color-4" ng-click="preset('#f3f5f6','#878787','#878787','#9b59b6','#f3f5f6','#ffffff','#9b59b6','#9b59b6')"></li>
+        <li class="custom-settings"><span></span>Custom Settings</li>
+    </ul>
+
+    <div class="theme-color-custom-settings">
+        <div class="row">
+            <div ng-repeat="(key, design) in schema.design" >
+                <div class="col-md-6">
+                    <div ng-if="design.type === 'color-picker'">
+                        <div class="form-group">
+                            <label>{{design.label}}</label>
+                            <div>
+                                <input  minicolors="{control: 'brightness',theme: 'bootstrap', position: 'top right'}"
+                                        class="form-control"
+                                        type="text"
+                                        ng-model="design.value"
+                                        ng-change="delay(assemble)">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--
+<div class="form-group">
+    <label class="label-align-left">Border radius</label>
+    <gm-slider model="borderRadius"></gm-slider>
+</div>
+
+<div class="form-group">
+    <label class="label-align-left">Border color</label>
+    <div>
+        <input  minicolors="{control: 'brightness',theme: 'bootstrap', position: 'top right'}"
+                class="form-control"
+                type="text"
+                ng-model="borderColor">
+    </div>
+</div> -->
+
+
+

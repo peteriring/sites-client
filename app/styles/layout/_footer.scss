@@ -1,0 +1,66 @@
+.footer {
+    border-top: 1px solid $color-border;
+    background-color: $color-light-gray;
+    padding: 75px 0;
+
+    .container {
+        @include respond-to(md-devices) {
+            width: 960px;
+        }
+        @include respond-to(lg-devices) {
+            width: 980px;
+        }
+    }
+
+    .col-xs-6:nth-child(2n) {
+        @include respond-to(phone, xs-devices) {
+            clear: both;
+        }
+    }
+
+    .copyright,
+    a {
+        color: #b8b9bd;
+    }
+
+    .logo-container {
+        text-align: center;
+        padding-bottom: 40px;
+        @include respond-to(md-devices-and-up) {
+            text-align: left;
+        }
+    }
+
+    .logo {
+        img {
+            filter: grayscale(1);
+            width: 190px;
+        }
+    }
+
+    .copyright {
+        padding-top: 5px;
+    }
+
+    ul {
+        list-style-type: none;
+        text-align: center;
+        @include respond-to(md-devices-and-up) {
+            text-align: left;
+        }
+    }
+
+    li a {
+        border-radius: 20px;
+        border: 2px solid transparent;
+        display: inline-block;
+        margin-bottom: 10px;
+        padding: 2px 10px;
+        &:focus,
+        &:hover {
+            border-color: $color-secondary;
+            color: $color-secondary;
+            text-decoration: none;
+        }
+    }
+}

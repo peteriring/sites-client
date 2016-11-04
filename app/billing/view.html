@@ -1,0 +1,160 @@
+<div class="custom-settings">
+    <form class="billing" recurly-form="updatePayment">
+        <div class="row">
+            <label class="question">Are you using GhostMonitor for business purposes?</label>
+            <div class="col-xs-offset-1 col-lg-offset-0 col-md-offset-0 col-xs-4 col-sm-2">
+                <div class="col-xs-1 col-sm-1 radio--yes">
+                    <div class="radio-input">
+                        <div class="radio-container">
+                            <input ng-model="billing.business_purpose" class="text-center" type="radio" name="business-purpose" ng-value="true">
+                            <span class="label"><span></span></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-1 col-sm-1">
+                    <label>Yes</label>
+                </div>
+            </div>
+            <div class="col-xs-4 col-sm-2 radio--no">
+                <div class="col-xs-1 col-sm-1">
+                    <div class="radio-input">
+                        <div class="radio-container">
+                            <input ng-model="billing.business_purpose" class="text-center" type="radio" name="business-purpose" ng-value="false">
+                            <span class="label"><span></span></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-1 col-sm-1">
+                    <label>No</label>
+                </div>
+            </div>
+        </div>
+        <div ng-if="!billing.business_purpose" class="row animate-if bonus-charge-alert">
+            <div class="alert alert-danger text-center" role="alert">
+                If you’re using GhostMonitor for personal purpose, we have to apply 27% EU-HU VAT, so your price will increase to $12.7.
+            </div>
+        </div>
+        <div class="page-header custom-page-header">
+            <h1 class="title-with-circle">Credit Card</h1>
+        </div>
+        <div class="row credit-card">
+            <div class="col--first col-xs-12 col-md-6">
+                <div class="form-group">
+                    <label>Firstname on Card</label>
+                    <input type="text" ng-model="billing.first_name" class="form-control" data-recurly="first_name">
+                </div>
+            </div>
+            <div class="col col-xs-12 col-md-6">
+                <div class="form-group">
+                    <label>Lastname on Card</label>
+                    <input type="text" ng-model="billing.last_name" class="form-control" data-recurly="last_name">
+                </div>
+            </div>
+        </div>
+        <div class="row credit-card">
+            <div class="col--first col-xs-12 col-md-6">
+                <div class="form-group">
+                    <label>Credit Card Number</label>
+                    <div data-recurly="number"></div>
+                </div>
+            </div>
+            <div class="col col-xs-12 col-md-4 expiration">
+                <div class="form-group">
+                    <label class="expiration__label">Card Expiration</label>
+                    <div class="col col-xs-12 col-md-6">
+                        <div class="expiration__input" data-recurly="month"></div>
+                    </div>
+                    <div class="col col-xs-12 col-md-6">
+                        <div class="expiration__input" data-recurly="year"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col col-xs-12 col-md-2">
+                <div class="form-group">
+                    <label>CVC</label>
+                    <div data-recurly="cvv"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="page-header custom-page-header">
+            <h1 class="title-with-circle">Billing Address</h1>
+        </div>
+        <div class="row">
+            <div ng-if="billing.business_purpose" class="col--first col-xs-12 col-md-6 animate-if">
+                <div class="form-group">
+                    <label>Business Name</label>
+                    <input type="text" ng-model="billing.company_name" class="form-control" data-recurly="company_name" placeholder="Enter your own name if you do not have a business name" required>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col--first col-xs-12 col-md-6">
+                <div class="form-group">
+                    <label>Address 1</label>
+                    <input type="text" ng-model="billing.address1" class="form-control" data-recurly="address1" required>
+                </div>
+            </div>
+            <div class="col col-xs-12 col-md-3">
+                <div class="form-group">
+                    <label>City / Town</label>
+                    <input type="text" ng-model="billing.city" class="form-control" data-recurly="city" placeholder="City" required>
+                </div>
+            </div>
+            <div class="col col-xs-12 col-md-3">
+                <div class="form-group">
+                    <label>State / Province / Region</label>
+                    <input type="text" ng-model="billing.state" class="form-control" data-recurly="state" placeholder="State">
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col--first col-xs-12 col-md-3">
+                <div class="form-group">
+                    <label>Postal Code</label>
+                    <input type="text" ng-model="billing.postal_code" class="form-control" data-recurly="postal_code" required>
+                </div>
+            </div>
+            <div class="col col-xs-12 col-md-3">
+                <div class="form-group">
+                     <label>Country</label>
+                    <input type="text" style="display: none;" ng-model="billing.country" class="form-control" data-recurly="country">
+                    <ui-select on-select="onCountryChange($item, $model)" ng-model="billing.country">
+                        <ui-select-match>{{$select.selected.label}}</ui-select-match>
+                        <ui-select-choices repeat="value.slug as value in countries | filter: $select.search">
+                            <div ng-bind-html="value.label | highlight: $select.search"></div>
+                        </ui-select-choices>
+                    </ui-select>     
+                </div>
+                
+            </div>
+            <div ng-if="billing.business_purpose && isSelectedEU" class="col col-xs-12 col-md-3 animate-if">
+                <div class="form-group">
+                    <label>EU VAT Number</label>
+                    <input type="text" ng-model="billing.vat_number" class="form-control" data-recurly="vat_number" required>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-md-6">
+                <div class="form-group form-group--with-button">
+                  <span ng-switch="(disableButton)">
+                      <button ng-switch-when="true" class="primary-btn large-btn" disabled="true">
+                          <i class="icon-save faa-passing animated"></i>
+                           Save Changes
+                      </button>
+                      <button ng-switch-default class="primary-btn large-btn">
+                          <i class="icon-save"></i>
+                           Save Changes
+                      </button>
+                  </span>
+                </div>
+            </div>
+            <div class="col-xs-12 col-md-6">
+                <div class="form-group">
+                    <input type="hidden" name="recurly-token" data-recurly="token">
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

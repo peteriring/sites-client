@@ -1,0 +1,278 @@
+<div class="full-bg-container">
+    <div ng-include="'core/templates/siteSettingPanel.html'"></div>
+
+    <div class="date-picker-header">
+        <div class="date-range-picker">
+            <button date-range-picker options="picker.options" ng-model="picker.range" select-date-range="selectRange()" min="picker.minDate" max="picker.maxDate" class="secondary-btn calendar-button">
+                <span class="icon-calendar"></span>
+                {{picker.display}}
+            </button>
+        </div>
+        <h1 class="title-with-circle">Let's talk about money</h1>
+    </div>
+
+    <div class="site-stats">
+        <div class="dashboard-boxes col-sm-4">
+            <div class="dashboard-box">
+                <div mock="statistics.recoveredRevenue" class="title nowrap">
+                    <dynamic-font-size size="large" value="statistics.recoveredRevenue"/>
+                </div>
+                <div class="subtitle">
+                    Recovered Revenue
+                </div>
+            </div>
+            <div class="dashboard-box icon">
+                <div class="dashboard-box-container">
+                    <div class="icon-container">
+                        <span class="icon-lost-revenue"></span>
+                    </div>
+                    <div class="title nowrap">
+                        <div mock="statistics.lostRevenue">
+                            <dynamic-font-size size="medium" value="statistics.lostRevenue"/>
+                        </div>
+                        <div class="subtitle">
+                             Lost Revenue
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="chart-box col-sm-8">
+            <canvas ng-if="diagrams" class="chart chart-line dashboard" data="diagrams.recoveredRevenue.data" labels="diagrams.recoveredRevenue.labels" options="options"></canvas>
+        </div>
+    </div>
+
+</div>
+
+<div class="site-analytics">
+    <div class="site-analytics-container">
+        <div class="site-analytics-box">
+            <div>
+                <div mock="statistics.shopRevenueWithoutGM" class="title">
+                    {{ statistics.shopRevenueWithoutGM | gmCurrency }}
+                </div>
+                <div class="subtitle">
+                    Without GhostMonitor
+                </div>
+            </div>
+            <div class="triangle-up"></div>
+        </div>
+
+        <div class="site-analytics-box revenue-growth">
+            <div>
+                <div mock="statistics.revenueGrowth" class="title">
+                    <span class="icon-arrow"></span>
+                    <span>{{ statistics.revenueGrowth | percent }}</span>
+                </div>
+                <div class="subtitle">
+                    Revenue Growth
+                </div>
+            </div>
+        </div>
+
+        <div class="site-analytics-box">
+            <div>
+                <div mock="statistics.shopRevenueWithGM" class="title">
+                    {{ statistics.shopRevenueWithGM | gmCurrency }}
+                </div>
+                <div class="subtitle">
+                    With GhostMonitor
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="abandonment-stats">
+    <h1 class="title-with-circle">Abandonment Statistics</h1>
+    <div class="row">
+        <div class="col-sm-3">
+            <div class="dashboard-box">
+                <div mock="statistics.startedCheckout" class="title">
+                    {{ statistics.startedCheckout }}
+                </div>
+                <div class="subtitle">
+                    Started Checkout
+                </div>
+            </div>
+        </div>
+
+            <div class="col-sm-3 bottom">
+                <div class="dashboard-box">
+                    <span class="icon-arrow"></span>
+                    <div mock="statistics.abandonmentRate" class="title">
+                        {{ (statistics.abandonmentRate || 0) | percent }}
+                    </div>
+                    <div class="subtitle">
+                        Abandonment Rate
+                    </div>
+                </div>
+            </div>
+
+        <div class="col-sm-3">
+            <div class="dashboard-box">
+                <span class="icon-arrow"></span>
+                <div mock="statistics.abandonedCarts" class="title">
+                    {{ statistics.abandonedCarts }}
+                </div>
+                <div class="subtitle">
+                    Abandoned Cart
+                </div>
+            </div>
+        </div>
+
+            <div class="col-sm-3 bottom">
+                <div class="dashboard-box">
+                    <span class="icon-arrow"></span>
+                    <div mock="statistics.identifiableRate" class="title">
+                        {{ statistics.identifiableRate | percent }}
+                    </div>
+                    <div class="subtitle">
+                        Identifiable Rate
+                    </div>
+                </div>
+            </div>
+
+        <div class="col-sm-3">
+            <div class="dashboard-box">
+                <span class="icon-arrow"></span>
+                <div mock="statistics.abandonedCartsWithEmail" class="title">
+                    {{ statistics.abandonedCartsWithEmail }}
+                </div>
+                <div class="subtitle">
+                    Abandoned Cart With Email
+                </div>
+            </div>
+        </div>
+
+            <div class="col-sm-3 bottom">
+                <div class="dashboard-box">
+                    <span class="icon-arrow"></span>
+                    <div mock="statistics.conversionRate" class="title">
+                        {{ statistics.conversionRate | percent }}
+                    </div>
+                    <div class="subtitle">
+                        Conversion Rate
+                    </div>
+                </div>
+            </div>
+
+        <div class="col-sm-3">
+            <div class="dashboard-box">
+                <span class="icon-arrow"></span>
+                <div mock="statistics.recoveredCarts" class="title">
+                    {{ statistics.recoveredCarts }}
+                </div>
+                <div class="subtitle">
+                    Recovered Cart
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<div class="pie-chart-header">
+    <h1 class="title-with-circle">E-mail stats</h1>
+</div>
+
+<!-- css pie chart dummy -->
+<div class="row pie-chart">
+    <div>
+        <div class="c100 p{{ statistics.sentEmails | knob }}">
+            <span>{{ statistics.sentEmails }} <i>Email sent</i></span>
+            <div class="slice">
+                <div class="bar"></div>
+                <div class="fill"></div>
+            </div>
+        </div>
+    </div>
+    <div>
+        <div class="c100 p{{ statistics.openRate | knob }}">
+            <span> {{ statistics.openRate | percent }} <i>Open Rate</i></span>
+            <div class="slice">
+                <div class="bar"></div>
+                <div class="fill"></div>
+            </div>
+        </div>
+    </div>
+    <div>
+        <div class="c100 p{{ statistics.clickRate | knob }}">
+            <span>{{ statistics.clickRate | percent }}<i>Click Rate</i></span>
+            <div class="slice">
+                <div class="bar"></div>
+                <div class="fill"></div>
+            </div>
+        </div>
+    </div>
+    <div>
+        <div class="c100 p{{ statistics.bounceRate | knob }}">
+            <span>{{ statistics.bounceRate | percent }} <i>Bounce Rate</i></span>
+            <div class="slice">
+                <div class="bar"></div>
+                <div class="fill"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- END css pie chart dummy -->
+
+<div class="sent-emails-container">
+    <h1 class="title-with-circle">Sent e-mails</h1>
+    <div class="diagram-container">
+        <canvas ng-if="diagrams" class="chart chart-line" data="diagrams.sentEmails.data" labels="diagrams.sentEmails.labels" options="options"></canvas>
+    </div>
+</div>
+
+<div class="row" ng-if="false">
+    <div class="col-md-6">
+        <div class="table-container">
+            <h1 class="title-with-circle">Top e-mails</h1>
+            <div mock="emails">
+                <table ng-show="emails.length" ng-table class="table table-hover" >
+                    <tr ng-repeat="email in emails">
+                        <td class="col-icon"><span class="icon-mail"></span></td>
+                        <td class="text-left subject" data-title="'Subject'" data-mobile-title="Subject">
+                            <span class="title">{{ email.name || 'No subject specified' }}</span>
+                            <span class="time">{{ email.scheduleString }}</span>
+                        </td>
+                        <td class="col-value open-rate" data-title="'Open Rate'" data-mobile-title="Open Rate">
+                            <span>{{ email.statistics.openRate | percent }}</span>
+                        </td>
+                        <td class="col-value click-rate" data-title="'Click Rate'" data-mobile-title="Click Rate">
+                            <span>{{ email.statistics.clickRate | percent }}</span>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <h4 ng-show="!emails.length" class="text-center">No emails detected yet!</h4>
+        </div>
+    </div>
+
+    <div class="col-md-6">
+        <div class="table-container" >
+            <h1 class="title-with-circle">Latest abandoners</h1>
+            <div ng-show="ghosts.length" mock="ghosts">
+                <table ng-show="ghosts.length" ng-table class="table table-hover" >
+                    <tr ng-repeat="ghost in ghosts | limitTo: 3">
+                        <td class="col-icon"><span class="icon-abandoned-cart"></span></td>
+                        <td class="text-left e-mail" data-title="'E-mail'" data-mobile-title="E-mail">
+                            <span class="title">{{ ghost.email }}</span>
+                            <span class="time">{{ ghost.lastHeartbeatAt | date: 'MMM dd hh:mm a' }}</span>
+                        </td>
+                        <td class="col-value type" data-title="'Type'" data-mobile-title="Type">
+                            <span>{{ ghost.sessionType | sessionType }}</span>
+                        </td>
+                        <td class="col-value value" data-title="'Value'" data-mobile-title="Value">
+                            <span>{{ ghost.cartData.value | gmCurrency }}</span>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <h4 ng-show="!ghosts.length" class="text-center">No ghost detected yet!</h4>
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,70 @@
+{
+  "name": "gm-client",
+  "version": "0.0.0",
+  "dependencies": {
+    "angular": "~1.4.0",
+    "angular-animate": "~1.4.3",
+    "angular-bootstrap": "~0.13.4",
+    "angular-chart.js": "~0.7.2",
+    "angular-cookies": "~1.3.0",
+    "angular-daterangepicker": "~0.1.16",
+    "angular-mask": "~3.0.12",
+    "angular-mocks": "~1.4.3",
+    "angular-q-spread": "~1.0.2",
+    "angular-resource": "~1.3.0",
+    "angular-route": "~1.3.0",
+    "angular-sanitize": "~1.3.0",
+    "angular-smart-table": "~2.0.2",
+    "angular-touch": "~1.3.0",
+    "angular-ui-notification": "~0.0.8",
+    "angular-ui-select": "~0.12.0",
+    "angular-ui-sortable": "~0.13.3",
+    "bootstrap-sass": "~3.3.5",
+    "bootstrap-validator": "~0.8.1",
+    "es5-shim": "~4.0.0",
+    "font-awesome": "~4.3.0",
+    "font-awesome-animation": "~0.0.6",
+    "jquery-knob": "~1.2.11",
+    "jquery-ui": ">=1.10.4",
+    "json3": "~3.3.0",
+    "logentries": "~0.0.3",
+    "moment": "~2.10.5",
+    "moment-timezone": "~0.4.0",
+    "ng-idle": "~1.1.0",
+    "ng-switchery": "~1.0.0-alpha7",
+    "ng-table": "~0.5.4",
+    "ngstorage": "~0.3.3",
+    "nunjucks": "~2.0.0",
+    "satellizer": "~0.9.1",
+    "teljs": "~1.2.1",
+    "textAngular": "~1.4.1",
+    "ui-router": "~0.2.14",
+    "underscore": "~1.8.3",
+    "angular-minicolors": "~0.0.5",
+    "angular-ui-slider": "~0.1.4",
+    "sass.js": "~0.9.4",
+    "forerunner": "~1.3.580",
+    "angular-elastic": "~2.5.1"
+  },
+  "overrides": {
+    "sass.js": {
+      "main": [
+        "./dist/sass.js"
+      ]
+    },
+    "forerunner": {
+      "main": [
+        "./js/dist/fdb-all.min.js"
+      ]
+    }
+  },
+  "resolutions": {
+    "angular": "~1.4.0",
+    "moment": "~2.10.5"
+  },
+  "devDependencies": {
+    "angular-mocks": "~1.4.3",
+    "angular-scenario": "~1.3.0"
+  },
+  "appPath": "app"
+}

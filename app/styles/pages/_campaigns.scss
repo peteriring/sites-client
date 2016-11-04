@@ -1,0 +1,357 @@
+%campaign-details {
+    text-align: center;
+    color: $color-primary;
+    .type,
+    .value {
+        font-size: 18px;
+        line-height: 20px;
+        margin-bottom: 8px;
+        display: inline-block;
+        font-weight: normal;
+    }
+}
+
+%campaign-title {
+    color: #66757f;
+    font-size: 20px;
+    line-height: 24px;
+    font-weight: bold;
+    margin: 0;
+}
+
+%campaign-subtitle {
+    color: #9a9a9a;
+    font-size: 15px;
+    line-height: 18px;
+}
+
+.campaigns {
+    .full-bg-container {
+        padding: 27px 0;
+    }
+    .disable-div {
+        position: absolute;
+        background-color: #FFFFFF;
+        width: 100%;
+        height: 100%;
+        z-index: 100;
+        opacity: 0.5;
+    }
+    .gm-btn {
+        border-radius: 100px;
+        margin-right: 8px;
+        padding-top: 6px;
+        padding-bottom: 6px;
+        width: 49%;
+        @include respond-to(sm-devices-and-up) {
+            //min-width: 104px;
+            padding: 5px 13px;
+            width: auto;
+        }
+        i {
+            font-size: 20px;
+            padding-right: 0;
+        }
+    }
+    .test-btn {
+        padding: 11px 14px;
+        line-height: 8px;
+        font-size: 16px;
+        margin-top: 4px;
+        top: 4px;
+    }
+    .edit-btn {
+        padding: 6px 25px;
+    }
+    .campaign-items-title {
+        margin-top: 30px;
+        margin-bottom: 30px;
+        text-align: center;
+        @include respond-to(sm-devices-and-up) {
+            text-align: left;
+            margin-top: 23px;
+            margin-bottom: 15px;
+        }
+        .title-with-circle {
+            margin: 0;
+            display: inline-block;
+            .warning-message {
+                color: #e55353;
+            }
+        }
+    }
+    .header-row {
+        padding-bottom: 6px;
+        margin-bottom: 11px;
+        border-bottom: 1px solid $color-border;
+    }
+    .col-campaign-mobile-header {
+        @include respond-to(phone, xs-devices) {
+            display: table;
+            width: 100%;
+        }
+        > div {
+            @include respond-to(phone, xs-devices) {
+                display: table-cell;
+                vertical-align: middle;
+            }
+        }
+    }
+    .campaign {
+        border-radius: 10px;
+        background-color: #fff;
+        border: 1px solid $color-border;
+        padding: 18px 20px 60px 20px;
+        @include respond-to(sm-devices-and-up) {
+            padding-bottom: 13px;
+        }
+        .col-buttons {
+            @include respond-to(md-devices) {
+                text-align: center;
+            }
+            @include respond-to(sm-devices) {
+                text-align: center;
+            }
+
+            @include respond-to(phone, xs-devices) {
+                position: absolute;
+                bottom: 30px;
+                left: 0;
+                right: 0;
+                text-align: center;
+                padding-bottom: 5px;
+            }
+
+            &--test {
+                @include respond-to(phone, xs-devices) {
+                    margin-left: 45px;
+                }
+            }
+        }
+        .header-subtitle {
+            @extend %campaign-subtitle;
+            line-height: 16px;
+        }
+    }
+    .switch-container {
+        float: left;
+        padding-right: 15px;
+    }
+    .campaign-name-container {
+        margin-left: 55px;
+    }
+    .campaign-name {
+        @extend %campaign-title;
+        font-weight: normal;
+        @include respond-to(sm-devices-and-up) {
+            margin-top: 9px;
+        }
+    }
+    .checkbox-switch-height-30{
+        display: inline-block;
+
+        &--main {
+            margin-left: 20px;
+            margin-right: 12px;
+            top: 9px;
+
+            @include respond-to(phone, xs-devices) {
+                margin-left: 0;
+            }
+        }
+    }
+    .campaign-details {
+        @extend %campaign-details;
+        margin-top: 14px;
+        margin-bottom: -4px;
+    }
+
+    .progress {
+        @include respond-to(phone, xs-devices) {
+            margin-bottom: 20px;
+        }
+    }
+    .row .col-sm-4:last-child .progress {
+        margin-bottom: 0;
+    }
+}
+
+.campaign-item {
+    position: relative;
+    padding-bottom: 29px;
+    &-opened {
+        .campaign-item__details {
+            &__body {
+                display: block;
+            }
+        }
+        .stat-btn {
+            position: relative;
+            &:after {
+                position: absolute;
+                left: 50%;
+                margin-left: -3px;
+                bottom: -5px;
+                content: '';
+                width: 0;
+                height: 0;
+                border-left: 6px solid transparent;
+                border-right: 6px solid transparent;
+                border-top: 6px solid $color-secondary;
+            }
+            &:hover,
+            &:focus {
+                &:after {
+                    border-top: 6px solid darken($color-secondary, 10%);
+                }
+            }
+        }
+    }
+
+    &__details {
+        padding: 12px 20px 8px 20px;
+        @include clearfix();
+        border: 1px solid $color-border;
+        border-radius: 10px;
+        background-color: #f6f9fa;
+        @include respond-to() {
+            padding-bottom: 16px;
+        }
+        &__header {
+            padding: 0 5px;
+            @include clearfix();
+            @include respond-to(sm-devices-and-up) {
+                display: table;
+                width: 100%;
+            }
+            .header-title {
+                @extend %campaign-title;
+                font-weight: normal;
+                text-align: center;
+                display: block;
+                @include respond-to(sm-devices-and-up) {
+                    text-align: left;
+                }
+                &:hover {
+                    text-decoration: none;
+                }
+            }
+            .header-subtitle {
+                @extend %campaign-subtitle;
+                margin-top: -4px;
+                text-align: center;
+                @include respond-to(sm-devices-and-up) {
+                    text-align: left;
+                }
+            }
+            .col-sm {
+                @include respond-to(sm-devices-and-up) {
+                    display: table-cell;
+                    vertical-align: middle;
+                }
+            }
+            .col-md {
+                @include respond-to(md-devices-and-up) {
+                    display: table-cell;
+                    vertical-align: middle;
+                }
+            }
+            .col-icon {
+                display: none;
+                width: 55px;
+                @include respond-to(sm-devices-and-up) {
+                    display: table-cell;
+                    padding-top: 4px;
+                }
+            }
+        }
+        &__body {
+            border-top: 1px solid $color-border;
+            margin-top: 18px;
+            padding-top: 15px;
+            display: block;
+            @extend %campaign-details;
+            @include clearfix();
+        }
+    }
+    &-container {
+        position: relative;
+    }
+    .icon-mail {
+        color: #c7c7c6;
+        background-color: #e6e6e6;
+        border-radius: 100%;
+        padding: 5px 2px;
+        font-size: 28px;
+    }
+    .actions-container {
+        padding-top: 10px;
+        padding-bottom: 3px;
+        text-align: center;
+        @include respond-to(sm-devices-and-up) {
+            text-align: right;
+            padding-top: 0;
+            padding-bottom: 0;
+            min-width: 275px;
+            text-align: right;
+        }
+        .checkbox-switch-height-30 {
+            display: inline-block;
+            position: relative;
+            margin-bottom: 0;
+            top: 8px;
+            margin-right: -5px;
+        }
+    }
+}
+
+.new-mail {
+    border: 3px dotted #efefef;
+    padding-left: 25px;
+    margin-bottom: 58px;
+
+    .icon-mail {
+        color: #c7c7c6;
+        background-color: #e6e6e6;
+        border-radius: 100%;
+        padding: 5px 2px;
+        font-size: 28px;
+    }
+
+    .add {
+        @extend %campaign-title;
+        font-weight: normal;
+        text-align: center;
+        display: block;
+        color: #bcc1c5;
+
+        @include respond-to(sm-devices-and-up) {
+            text-align: left;
+        }
+        &:hover {
+            text-decoration: none;
+        }
+    }
+
+    .col-sm {
+        @include respond-to(sm-devices-and-up) {
+            display: table-cell;
+            vertical-align: middle;
+        }
+    }
+    .col-icon {
+        width: 55px;
+        display: none;
+        padding-top: 18px;
+        padding-bottom: 16px;
+
+        @include respond-to(sm-devices-and-up) {
+            display: table-cell;
+        }
+    }
+
+    .icon-mail {
+        background-color: #f7f7f7;
+        color: #e7e7e7;
+    }
+}

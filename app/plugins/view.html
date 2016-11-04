@@ -1,0 +1,231 @@
+<div class="plugins">
+    <h1>You’re only a few simple steps away from increasing your revenue! </h1>
+     <div class="container">
+        <h2 class="title-with-circle">It’s time to install GhostMonitor in your online store:</h2>
+        <gm-form atomic="false" model="ui" handler="save()" icon="fa fa-refresh" animation="fa-spin">
+            <div class="row">
+                <div class="plugin-engine-select">
+                    <div class="col-sm-4">
+                        <label class="engine">
+                            <img src="/images/logo_shopify.svg" class="img-responsive">
+                            <div class="radio-input">
+                                <div class="radio-container">
+                                    <input ng-model="model.engine" class="text-center" type="radio" name="pluginSelector" value="shopify" ng-click="shopifyModal($event)">
+                                    <span class="label"><span></span></span>
+                                </div>
+                            </div>
+                        </label>
+                    </div>
+                    <div class="col-sm-4">
+                        <label class="engine">
+                            <img src="/images/logo_woocommerce.svg" class="img-responsive">
+                            <div class="radio-input">
+                                <div class="radio-container">
+                                    <input ng-model="model.engine" class="text-center" type="radio" name="pluginSelector" value="woocommerce">
+                                    <span class="label"><span></span></span>
+                                </div>
+                            </div>
+                        </label>
+                    </div>
+                    <div class="col-sm-4">
+                        <label class="engine">
+                            <img src="/images/logo_wpecommerce.png" class="img-responsive">
+                            <div class="radio-input">
+                                <div class="radio-container">
+                                    <input ng-model="model.engine" class="text-center" type="radio" name="pluginSelector" value="wpecommerce">
+                                    <span class="label"><span></span></span>
+                                </div>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="id-block">
+                        <div class="container">
+                            <h2 class="label">Your Site ID:</h2>
+                            <span class="highlighted-text">
+                                <input class="id plugin-site-id bold" type="text" ng-model="user.site.id" select-on-click readonly/>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div ng-if="model.engine === 'woocommerce'" class="form-title">
+                <h2 id="anchor" class="title-with-circle">How to install GhostMonitor on your WooCommerce site:</h2>
+            </div>
+
+            <div ng-if="model.engine === 'wpecommerce'" class="form-title">
+                <h2 id="anchor" class="title-with-circle">How to install GhostMonitor on your WP eCommerce site:</h2>
+            </div>
+
+            <div class="animate-switch-container" ng-switch on="ui.engine">
+                <div ng-if="false" class="animate-switch" ng-switch-when="shopify">
+                    <ul>
+                        <li>
+                            <div><span>1</span></div>
+                            <div>Get the GhostMonitor plugin <a ng-href="{{ui.url}}" target="_blank">here</a></div>
+                        </li>
+                        <li>
+                            <div><span>2</span></div>
+                            <div>Click on "Install GhostMonitor"</div>
+                        </li>
+                        <li>
+                            <div><span>3</span></div>
+                            <div>Login the plugin with your GhostMonitor account</div>
+                        </li>
+                    </ul>
+                </div>
+                <!--
+                <div class="animate-switch" ng-switch-when="Magento">
+                    <ul>
+                        <li>
+                            <div><span>1</span></div>
+                            <div>Download the GhostMonitor Extension <a ng-href="{{ui.url}}" target="_blank">here</a>. (Mac users please Alt+Click <a ng-href="{{ui.url}}" target="_blank">here</a>.)</div>
+                        </li>
+                        <li>
+                            <div><span>2</span></div>
+                            <div>Go to System - Magento Connect - Magento Connect Manager and re-enter your login data.</div>
+                        </li>
+                        <li>
+                            <div><span>3</span></div>
+                            <div>At Direct package file upload section upload the extension “Upload”. You’ll see a success message at the bottom of the page.</div>
+                        </li>
+                        <li>
+                            <div><span>4</span></div>
+                            <div>
+                                Go back to System > Configuration > Checkout. At GhostMonitor bar, enter your Ghostmonitor Account Site ID:
+                                <br/><strong><input class="width-100 bold" type="text" ng-model="user.site.id" select-on-click/></strong>
+                                and your Domain Name:
+                                <br/><strong><input class="width-100 bold" type="text" ng-model="ui.siteUrl" select-on-click/></strong>
+                                Please include the dot before your URL.
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                -->
+                <div ng-if="model.engine === 'woocommerce' || model.engine === 'wpecommerce'" class="animate-switch">
+                    <ul>
+                        <li>
+                            <div><span>1)</span>In your WP Admin, go to Plugins > Add New.</div>
+                        </li>
+                        <li>
+                            <div><span>2)</span>Search for “GhostMonitor" and click "Install Now" on our plugin.
+                                Alternatively, <a ng-href="{{ui.pluginPageUrl}}">here's</a> the direct link to the plugin on WordPress.org.
+                            </div>
+                        </li>
+                        <li>
+                            <div><span>3)</span>Once the plugin has been installed, please activate it.</div>
+                        </li>
+                        <li>
+                            <div><span>4)</span>Go to Plugins > GhostMonitor > Settings and paste your
+                                Site ID (listed above) in the applicable field. Click “Save” when you’re done.
+                            </div>
+                        </li>
+                        <li>
+                            <div><span>5)</span>That’s it, you’re done!</div>
+                        </li>
+                    </ul>
+                </div>
+
+                <!--
+                <div class="animate-switch" ng-switch-when="PrestaShop">
+                    <ul>
+                        <li>
+                            <div><span>1</span></div>
+                            <div>Download the GhostMonitor Extension <a ng-href="{{ui.url}}" target="_blank">here</a>. (Mac users please press Alt+Click <a ng-href="{{ui.url}}" target="_blank">here</a>.)</div>
+                        </li>
+                        <li>
+                            <div><span>2</span></div>
+                            <div>Go to your Admin Page > Modules and Services > Modules and Services and click Add a new module at the top of the page.</div>
+                        </li>
+                        <li>
+                            <div><span>3</span></div>
+                            <div>Upload the GhostMonitor Module.</div>
+                        </li>
+                        <li>
+                            <div><span>4</span></div>
+                            <div>In the Modules List, search for GhostMonitor, then click Configure.</div>
+                        </li>
+                        <li>
+                            <div><span>5</span></div>
+                            <div>
+                                Enter your Ghostmonitor Account Site ID:
+                                <br/><strong><input class="width-100 bold" type="text" ng-model="user.site.id" select-on-click/></strong>
+                                 and your Domain Name:
+                                <br/><strong><input class="width-100 bold" type="text" ng-model="ui.siteUrl" select-on-click/></strong>
+                                Please include the dot before your URL.
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="animate-switch" ng-switch-when="Opencart">
+                    <ul>
+                        <li>
+                            <div><span>1</span></div>
+                            <div>Download the GhostMonitor Extension <a ng-href="{{ui.url}}" target="_blank">here</a>. (Mac users please press Alt+Click <a ng-href="{{ui.url}}" target="_blank">here</a>.)</div>
+                        </li>
+                        <li>
+                            <div><span>2</span></div>
+                            <div>Go to Extensions > Extensions Installer, then upload the GhostMonitor Extension, and click on Continue.</div>
+                        </li>
+                        <li>
+                            <div><span>3</span></div>
+                            <div>Go to Extensions > Modules, find GhostMonitor, click on Edit.</div>
+                        </li>
+                        <li>
+                            <div><span>4</span></div>
+                            <div>
+                                Enter your Ghostmonitor Account Site ID:
+                                <br/><strong><input class="width-100 bold" type="text" ng-model="user.site.id" select-on-click/></strong>
+                                and your Domain Name:
+                                <br/><strong><input class="width-100 bold" type="text" ng-model="ui.siteUrl" select-on-click/></strong>
+                                Please include the dot before your URL.
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="animate-switch text-center" ng-switch-when="Other">
+                    <ul>
+                        <li>
+                            <div><span>1</span></div>
+                            <div>
+                            Read our custom integration guide:
+                            <br/><a ng-href="https://gist.github.com/barczaG/73e2f6719047e6faaae4" target="_blank">https://gist.github.com/barczaG/73e2f6719047e6faaae4</a>
+                            </div>
+                        </li>
+                        <li>
+                            <div><span>2</span></div>
+                            <div>
+                                Implement it, using your credentials:
+                                <br/>Your Ghostmonitor Account Site ID:
+                                <br/><strong><input class="width-100 bold" type="text" ng-model="user.site.id" select-on-click/></strong>
+                                <br/>and your Domain Name:
+                                <br/><strong><input class="width-100 bold" type="text" ng-model="ui.siteUrl" select-on-click/></strong>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                -->
+
+                <div class="text-center instruction-label">
+                    Having trouble with the installation? Read our complete guide about set up GhostMonitor on your site.
+                </div>
+            </div>
+
+
+            <!--<div ng-if="ui.engine!=='Other'" class="text-center custom-padding-bottom20">
+                Got problem with the install? <a href="mailto:hello@ghostmonitor.com" target="_blank">Contact us.</a>
+            </div>-->
+
+
+            <div class="row">
+                <div class="btn-container col-sm-12">
+                    <button type="submit" class="primary-btn large-btn">Save and go to dashboard</button>
+                </div>
+            </div>
+        </gm-form>
+    </div>
+</div>

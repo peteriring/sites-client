@@ -1,0 +1,63 @@
+.table {
+    border-collapse: collapse;
+    border-radius: 5px;
+    border-style: hidden;
+    box-shadow: 0 0 0 1px $color-border;
+    text-align: center;
+
+    &.table-hover > tbody > tr:hover {
+        background-color: transparent;
+    }
+
+    > thead {
+        background: #f3f3f3;
+        @include respond-to(phone, xs-devices) {
+            display: none;
+        }
+        > tr {
+            > th {
+                border-bottom: none;
+                padding: 0px;
+                font-size: 12px;
+            }
+        }
+    }
+    > tbody {
+        tr {
+            border-bottom: 1px solid $color-border;
+            @include respond-to(sm-devices-and-up) {
+                border: none;
+            }
+
+            &:first-child {
+                td {
+                    border-top: none;
+                }
+            }
+
+            td {
+                vertical-align: middle;
+                @include respond-to(phone, xs-devices) {
+                    display: block;
+                    position: relative;
+                    padding-left: 50%;
+                    border: none;
+                }
+                &:before {
+                    content: attr(data-mobile-title);
+                    position: absolute;
+                    top: 6px;
+                    left: 0;
+                    left: 10px;
+                    width: 45%;
+                    text-align: left;
+                    padding-right: 10px;
+                    /* white-space: nowrap; */
+                    @include respond-to(sm-devices-and-up) {
+                        display: none;
+                    }
+                }
+            }
+        }
+    }
+}

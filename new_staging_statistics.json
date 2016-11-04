@@ -1,0 +1,95 @@
+{
+  "site": {
+    "_id": "55f89098046108060025ba3d",
+    "statistics": {
+      "recoveredRevenue": 0,
+      "shopRevenueWithoutGM": 1668587,
+      "shopRevenueWithGM": 1668587,
+      "startedCheckout": 287,
+      "abandonedCarts": 143,
+      "recoveredCarts": 0,
+      "lostRevenue": 1535798,
+      "abandonedCartsWithEmail": 61,
+      "revenueGrowth": 0,
+      "abandonmentRate": 0.49825783972125437,
+      "identifiableRate": 0.42657342657342656,
+      "conversionRate": 0,
+      "clickCount": 0,
+      "openCount": 0,
+      "sentEmails": 75,
+      "bounceCount": 0,
+      "conversionCount": 0,
+      "clickRate": 0,
+      "openRate": 0,
+      "bounceRate": 0
+    }
+  },
+  "campaigns": [
+    {
+      "items": [
+        {
+          "_id": "56af5780bee827fedf4ae853",
+          "statistics": {
+            "clickCount": 0,
+            "openCount": 0,
+            "sentEmails": 75,
+            "bounceCount": 0,
+            "conversionCount": 0,
+            "clickRate": 0,
+            "openRate": 0,
+            "bounceRate": 0
+          }
+        },
+        {
+          "_id": "56af57b0bee827fedf4ae855",
+          "statistics": {
+            "clickCount": 0,
+            "openCount": 0,
+            "sentEmails": 0,
+            "bounceCount": 0,
+            "conversionCount": 0,
+            "clickRate": 0,
+            "openRate": 0,
+            "bounceRate": 0
+          }
+        },
+        {
+          "_id": "56af57d9bee827fedf4ae857",
+          "statistics": {
+            "clickCount": 0,
+            "openCount": 0,
+            "sentEmails": 0,
+            "bounceCount": 0,
+            "conversionCount": 0,
+            "clickRate": 0,
+            "openRate": 0,
+            "bounceRate": 0
+          }
+        },
+        {
+          "_id": "56af57ffbee827fedf4ae859",
+          "statistics": {
+            "clickCount": 0,
+            "openCount": 0,
+            "sentEmails": 0,
+            "bounceCount": 0,
+            "conversionCount": 0,
+            "clickRate": 0,
+            "openRate": 0,
+            "bounceRate": 0
+          }
+        }
+      ],
+      "statistics": {
+        "clickCount": 0,
+        "openCount": 0,
+        "sentEmails": 75,
+        "bounceCount": 0,
+        "conversionCount": 0,
+        "clickRate": 0,
+        "openRate": 0,
+        "bounceRate": 0
+      }
+    }
+  ]
+}

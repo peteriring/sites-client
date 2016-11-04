@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="utf-8">
+    <title>Landing Page</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="../bower_components/fontawesome/css/font-awesome.css" />
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600,700&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+    <link href="style.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+  <div class="site">
+    <div class="container">
+      <form class="col-md-offset-3 col-md-6">
+        <div class="form-group">
+          <div class="input-group">
+            <input type="text" class="form-control" name="email" id="input">
+            <span class="input-group-btn">
+              <button class="btn btn-green" id="button" type="button"><span>Try it now</span> - it's free!</button>
+            </span>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div class="modal fade" id="modal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        </div>
+        <div class="modal-body">
+          <h3 class="text-center">Get $500 revenue for free!</h3>
+          <form id="form">
+            <div class="row">
+              <div class="form-group">
+                <label class="col-md-3 text-right">E-mail address</label>
+                <div class="col-md-9">
+                  <div class="input-group">
+                    <input type="email" id="mEmail" name="email" class="form-control" required>
+                    <span class="form-control-feedback"></span>
+                    <span class="input-group-addon"><span class="glyphicon glyphicon-ok"></span></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="form-group">
+                <label class="col-md-3 text-right">Password</label>
+                <div class="col-md-9">
+                  <div class="input-group">
+                    <input type="password" name="password" class="form-control" required>
+                    <span class="form-control-feedback"></span>
+                    <span class="input-group-addon"><span class="glyphicon glyphicon-ok"></span></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="form-group">
+                <label class="col-md-3 text-right">Site URL</label>
+                <div class="col-md-9">
+                  <div class="input-group">
+                    <input type="url" name="domain" class="form-control" required>
+                    <span class="form-control-feedback"></span>
+                    <span class="input-group-addon"><span class="glyphicon glyphicon-ok"></span></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-offset-8 col-md-4">
+                <button class="btn btn-block btn-green">Create your account</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+  </div><!-- /.modal -->
+  <script src="../bower_components/jquery/dist/jquery.js"></script>
+  <script src="../bower_components/bootstrap/dist/js/bootstrap.js"></script>
+  <script src="../bower_components/bootstrap-validator/dist/validator.min.js"></script>
+  <script src="../bower_components/underscore/underscore.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

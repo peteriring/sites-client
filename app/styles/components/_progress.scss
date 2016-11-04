@@ -1,0 +1,14 @@
+.progress {
+    background-color: #e6e6e6;
+    border-radius: 30px;
+    box-shadow: none;
+    padding: 2px;
+    margin: 0;
+}
+.progress-bar {
+    border-radius: 30px;
+    box-shadow: none;
+}
+.progress-bar-success {
+    background-color: $color-primary;
+}

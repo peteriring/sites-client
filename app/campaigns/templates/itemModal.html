@@ -1,0 +1,12 @@
+<div class="modal-header" ng-switch="mode">
+    <button ng-click="cancel()" type="button" class="close" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+    <h4 ng-switch-when="preview" class="modal-title">{{ 'Subject: ' + item.subject }}</h4>
+    <h4 ng-switch-when="edit" class="modal-title">{{item.subject}}</h4>
+    <h4 ng-switch-when="new" class="modal-title">New Campaign Item</h4>
+</div>
+<div class="modal-body" ng-bind-html="template">
+    
+</div>
+<div class="modal-footer">
+    <button ng-if="mode === 'preview'" ng-click="cancel()" class="primary-btn">Ok</button>
+</div>

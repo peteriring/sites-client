@@ -1,0 +1,65 @@
+<div class="container">
+    <h1 class="step-title">Setup your emails</h1>
+    <h2 class="title-with-circle">Setup yours emails</h2>
+    <div class="row">
+        <gm-form atomic="false" model="user" handler="next(value)" trigger="submit">
+
+
+                <div class="form-group col-sm-6">
+                    <label for="shopName">Shop Name</label>
+                    <gm-input type="text" property="model.site.name" validate="required" placeholder="This will be the 'From' name in your abandoned cart emails.">
+                    <div class="help-block with-errors"></div>
+                </div>
+
+
+                <div class="form-group col-sm-6">
+                    <label for="customerEmail">Customer service email</label>
+                        <gm-input type="text" property="model.site.emailSettings.senderEmail" validate="['required', 'email']" placeholder="Your cart abandoners will write to this email.">
+                    <div class="help-block with-errors"></div>
+                </div>
+
+                <div ng-class="{'input-error': form.formal.$invalid}" class="form-group col-sm-6">
+                    <label>Language of your emails</label>
+                    <div class="ui-select-wrapper">
+                        <gm-input type="gm-select" property="model.site.campaignItemLanguage" validate="required" placeholder="Select a language" array="campaignItemLanguages" display="element.display" save="element.value"></gm-input>
+                        <span class="input-note">We apply our best converting cart recovery emails in your preferred language. You can change your emails on your Campaigns page.</span>
+                    </div>
+                </div>
+
+                <div  ng-if="false" class="form-group">
+                    <label>Select your plan</label>
+                    <gm-input type="gm-select" property="model.site.plan" array="plans" validate="required" display="element.name" save="element._id"></gm-input>
+                    <span class="input-note">{{planDescription()}}</span>
+
+                    <!--<div ng-repeat="plan in plans" ng-hide="plan.name === 'premium_subscription' || plan.name === 'beta_subscription'" ng-class="{'active': ui.plan === plan }" ng-click="user.site.plan = plan" class="media">
+                        <div class="media-left">
+                            <input type="checkbox" ng-checked="user.site.plan === plan">
+                        </div>
+                        <div class="media-body">
+                            <h4 class="media-heading">{{ plan.name }}</h4>
+                            <small>{{ plan.description }}</small>
+                        </div>
+                    </div>-->
+                </div>
+
+            <!--<div class="col-sm-6">
+                <div ng-class="{'input-error': form.discount.$invalid}" class="form-group">
+                    <label>Set the discount you give to cart abandoners</label>
+                    <div class="ui-select-wrapper">
+                        <gm-input type="gm-select" property="model.discount.amount" placeholder="Select a type" array="discounts" display="element.display" save="element.value"></gm-input>
+                    </div>
+                    <span class="input-note">The more discount you give to abandoners, the more carts you will recover. We recommend you to give 15%, but you can choose not give at all.</span>
+                </div>
+            </div>-->
+            <div class="btn-container col-sm-12">
+                <button type="submit" class="primary-btn large-btn">Activate "GhostMonitor"</button>
+            </div>
+        </gm-form>
+    </div>
+</div>
+
+
+
+
+
+

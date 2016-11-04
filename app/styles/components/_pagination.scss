@@ -1,0 +1,34 @@
+.ng-table-pager {
+    text-align: center;
+}
+
+.pagination {
+    > li {
+        &.active {
+            > a {
+                color: #fff;
+                background-color: $color-secondary;
+                border-radius: 100%;
+            }
+        }
+        > span,
+        > a {
+            border: none;
+            color: #929292;
+            border-radius: 100%;
+            &:hover,
+            &:focus {
+                background-color: $color-secondary;
+                color: #fff;
+            }
+        }
+    }
+
+    > li:first-child,
+    > li:last-child {
+        > span,
+        > a {
+            border-radius: 100%;
+        }
+    }
+}
